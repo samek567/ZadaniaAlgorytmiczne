@@ -1,0 +1,1 @@
+Zadania rozwiazane na 100pkt.
