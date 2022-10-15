@@ -1,4 +1,4 @@
-# OIJ, OIG na pozór można stwierdzić, że to proste konkursy, gdyż są dla uczniów szkół podstawowych i gimnazjum.
+OIJ, OIG na pozór można stwierdzić, że to proste konkursy, gdyż są dla uczniów szkół podstawowych i gimnazjum.
 Jednak bo zobaczeniu kilku zadań można stwierdzić, że ich poziom nie jest łatwy.
 W tym repozytorium znajdują się rozwiązania około 150 zadań, głównie podczas nauki do XVI OIJ.
 Takze zrobilem kilka zadan z ZWOJ-a, Ksiazki IV Oboz naukowy Ilocamp, Ksiazki Oboz naukowy proserwy 2010, Olimpiady Informatycznej
