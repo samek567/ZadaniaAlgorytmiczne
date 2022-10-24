@@ -6,7 +6,7 @@ Każdy może korzystać z rozwiązań, wiem jak irytujące jest jak godzinami ni
  Większość z pomysłow jest wymyślona przeze mnie, jednak niektóre sa z:
 - omówień zadań Olimpijskiego Koła Informatycznego
 - omówień zadań OIJ (kanal youtube OIJ, pliki tekstowe OIJ), OI (kanal youtube OI, pliki tekstowe OI), książeczek OI
-- pomocy użytkowników na Forum Pasja Informatyki.
+- pomocy użytkowników na Forum Pasja Informatyki (Głównie użytkownik Whistleroosh).
 
 Zadania wymgają podstawowych pojęć algorytmicznych, więć umieszczam listę niektórych z nich poniżej.
 Przez to każdy czytelnik będzie mógł poczytać o danej technice,strukturze danych w miarę potrzeb.
