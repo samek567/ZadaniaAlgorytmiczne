@@ -47,7 +47,7 @@ Podstawowych Pojęć Matematycznych:
 - Sito Erastotenesa
 - Kombinacje
 
-Podstawowych Struktur danych i polecań w c++:
+Podstawowych Struktur danych i poleceń w c++:
 - Tablice, Vectory (1,2,3 wymiarowe)
 - Set
 - Unordered Set
