@@ -44,9 +44,7 @@ Podstawowych Pojęć Matematycznych:
 - NWD
 - NWW (Wzór znając NWD)
 - Algorytm Euklidesa (Implementacja, STL)
-- Rozszerzony Algorytm Euklidesa
 - Sito Erastotenesa
-- Iloczyn wektorowy
 - Kombinacje
 
 Podstawowych Struktur danych i polecań w c++:
