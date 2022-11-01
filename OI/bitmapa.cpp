@@ -43,43 +43,21 @@ int main()
     while(!Q.empty())
     {
         Element spr = Q.front();
+        int X = 4;
+        vector<int> delta_x = {1,-1,0,0};
+        vector<int> delta_y = {0,0,1,-1};
 
-        if (spr.y + 1 >= 0 && spr.y + 1 < n && spr.x >= 0 && spr.x < m)
+        for (int i = 0; i < X; ++i)
         {
-            if (rozlewanie[spr.y + 1][spr.x] == -1)
+            if (spr.y + delta_y[i] >= 0 && spr.y + delta_y[i] < n && spr.x + delta_x[i] >= 0 && spr.x + delta_x[i] < m)
             {
-                rozlewanie[spr.y + 1][spr.x] = rozlewanie[spr.y][spr.x] + 1;
-                Q.push({spr.y + 1,spr.x});
+                if (rozlewanie[spr.y + delta_y[i]][spr.x + delta_x[i]] == -1)
+                {
+                    rozlewanie[spr.y + delta_y[i]][spr.x + delta_x[i]] = rozlewanie[spr.y][spr.x] + 1;
+                    Q.push({spr.y + delta_y[i],spr.x + delta_x[i]});
+                }
             }
         }
-
-        if (spr.y - 1 >= 0 && spr.y - 1 < n && spr.x >= 0 && spr.x < m)
-        {
-            if (rozlewanie[spr.y - 1][spr.x] == -1)
-            {
-                rozlewanie[spr.y - 1][spr.x] = rozlewanie[spr.y][spr.x] + 1;
-                Q.push({spr.y - 1,spr.x});
-            }
-        }
-
-        if (spr.y >= 0 && spr.y < n && spr.x + 1 >= 0 && spr.x + 1 < m)
-        {
-            if (rozlewanie[spr.y][spr.x + 1] == -1)
-            {
-                rozlewanie[spr.y][spr.x + 1] = rozlewanie[spr.y][spr.x] + 1;
-                Q.push({spr.y,spr.x + 1});
-            }
-        }
-
-        if (spr.y >= 0 && spr.y < n && spr.x - 1 >= 0 && spr.x - 1 < m)
-        {
-            if (rozlewanie[spr.y][spr.x - 1] == -1)
-            {
-                rozlewanie[spr.y][spr.x - 1] = rozlewanie[spr.y][spr.x] + 1;
-                Q.push({spr.y,spr.x - 1});
-            }
-        }
-
 
         Q.pop();
     }
