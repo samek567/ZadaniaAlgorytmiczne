@@ -32,6 +32,7 @@ int queryy(int l_zap, int p_zap)
 
 int main()
 {
+    // Zadanie Range Minimum Querry z SPOJ-a
     // O(q * log n)
     ios_base::sync_with_stdio(0);
     cin.tie(0);
