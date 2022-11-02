@@ -33,6 +33,7 @@ long long querry(int l_zap, int p_zap)
 
 int main()
 {
+    // Zadanie Catapult That Ball z SPOJ-a
     // O(m * log n)
     ios_base::sync_with_stdio(0);
     cin.tie(0);
