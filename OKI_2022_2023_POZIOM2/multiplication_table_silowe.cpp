@@ -9,7 +9,7 @@ vector<long long> liczby;
 
 int main()
 {
-    // Zadanie z cses.fi, podejscie silowe
+    // Zadanie z cses.fi, podejscie silowe.
     // O(n^2)
     ios_base::sync_with_stdio(0);
     cin.tie(0);
