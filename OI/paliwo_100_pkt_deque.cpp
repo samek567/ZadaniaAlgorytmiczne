@@ -32,6 +32,7 @@ void wypisz_stacje()
 
 int main()
 {
+    // Zadanie Paliwo 3 etap IV OI, na kolejke monotonniczna.
     // Algorytm jest liniowy. Kazdy element razy dodamy i maksymalnie raz zdejmiemy z stosu.
     ios_base::sync_with_stdio(0);
     cin.tie(0);
