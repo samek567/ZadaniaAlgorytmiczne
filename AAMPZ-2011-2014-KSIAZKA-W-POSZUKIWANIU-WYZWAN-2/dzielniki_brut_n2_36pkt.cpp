@@ -9,6 +9,7 @@ vector<int> liczby;
 
 int main()
 {
+    // Dzielniki 2014 1 gwiazdka
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
