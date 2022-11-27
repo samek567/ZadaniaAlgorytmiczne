@@ -65,7 +65,7 @@ long long dijkstraa(int &poczatek, int &koniec)
 
 int main()
 {
-    // Challange 4
+    // Challange 4 Implementacja Dijkstry
 
     ios_base::sync_with_stdio(0);
     cin.tie(0);
