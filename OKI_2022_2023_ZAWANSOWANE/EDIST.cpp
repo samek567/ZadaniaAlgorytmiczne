@@ -13,7 +13,7 @@ int main()
     https://github.com/samek567/ZadaniaAlgorytmiczne/blob/main/OKI_2022_2023_ZAWANSOWANE/EDIST.cpp
     ID: 30476906
     */
-    
+
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
