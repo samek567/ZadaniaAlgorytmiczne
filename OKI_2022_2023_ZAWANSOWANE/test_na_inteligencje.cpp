@@ -74,7 +74,6 @@ int main()
             cout << "NIE" << endl;
         }
     }
-
-
+    
     return 0;
 }
