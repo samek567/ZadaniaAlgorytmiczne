@@ -8,7 +8,7 @@ vector<vector<int>> drogi;
 
 int main()
 {
-    // Challange 2
+    // Challange 2 na pomysl
 
     ios_base::sync_with_stdio(0);
     cin.tie(0);
