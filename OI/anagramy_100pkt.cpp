@@ -30,6 +30,7 @@ set<string> ciagi_bez_powtorzen;
 
 int main()
 {
+    // 3 etap OI
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
