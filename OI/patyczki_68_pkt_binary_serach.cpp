@@ -110,13 +110,13 @@ int main()
                         aktualizuj_maxy(patyczki[f][poczatek],f);
                     }
                 }
-            }
-            if (najwiekszy.wartosc != -1 && drugi_najwiekszy.wartosc != -1)
-            {
-                if (najwiekszy.wartosc + drugi_najwiekszy.wartosc > patyczki[i][j])
+                if (najwiekszy.wartosc != -1 && drugi_najwiekszy.wartosc != -1)
                 {
-                    printf("%d %d %d %d %d %d",najwiekszy.kolor,najwiekszy.wartosc,drugi_najwiekszy.kolor,drugi_najwiekszy.wartosc,i+1,patyczki[i][j]);
-                    return 0;
+                    if (najwiekszy.wartosc + drugi_najwiekszy.wartosc > patyczki[i][j])
+                    {
+                        printf("%d %d %d %d %d %d",najwiekszy.kolor,najwiekszy.wartosc,drugi_najwiekszy.kolor,drugi_najwiekszy.wartosc,i+1,patyczki[i][j]);
+                        return 0;
+                    }
                 }
             }
         }
