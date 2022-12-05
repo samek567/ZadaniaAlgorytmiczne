@@ -52,7 +52,7 @@ int querry_max(int p, int k)
 
 int main()
 {
-    // Korzystam z obserwacji, ze najdalszy max na przedziale musi byc wynikiem.
+    // Korzystam z obserwacji, ze najdalszy max na przedziale musi byc wynikiem. XXI OI etap Bar Sałatkowy
     ios_base::sync_with_stdio(0);
     cout.tie(0);
     cin.tie(0);
