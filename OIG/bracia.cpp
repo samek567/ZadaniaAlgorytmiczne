@@ -4,7 +4,6 @@
 using namespace std;
 
 int n = 0, wczytana_liczba = 0, MAX_wiek = 1e6+5;
-vector<int> szereg_wejsciowy;
 vector<int> szereg;
 vector<int> bilans_wystapien;
 vector<int> idx_pierwszego;
@@ -22,36 +21,28 @@ int main()
     for (int i = 0; i < n; ++i)
     {
         cin >> wczytana_liczba;
-        szereg_wejsciowy.push_back(wczytana_liczba);
+        szereg.push_back(wczytana_liczba);
         bilans_wystapien[wczytana_liczba]++;
-    }
-    for (int i = 0; i < n; ++i)
-    {
-        if (bilans_wystapien[szereg_wejsciowy[i]] == 1)
-        {
-            szereg.push_back(szereg_wejsciowy[i]);
-            szereg.push_back(szereg_wejsciowy[i]);
-            bilans_wystapien[szereg_wejsciowy[i]] = 2;
-        }
-        else
-            szereg.push_back(szereg_wejsciowy[i]);
-    }
-    for (int i = 0; i < szereg.size(); ++i)
-    {
-        if (idx_pierwszego[szereg[i]] == -1)
-            idx_pierwszego[szereg[i]] = i;
+        if (idx_pierwszego[wczytana_liczba] == -1)
+            idx_pierwszego[wczytana_liczba] = i;
     }
 
-    dp.assign(szereg.size(),0);
+    dp.assign(n,0);
     bilans_wystapien[szereg[0]]--;
-    for (int i = 1; i < szereg.size(); ++i)
+    if (bilans_wystapien[szereg[0]] == 0)
+        dp[0] = 1;
+    for (int i = 1; i < n; ++i)
     {
         bilans_wystapien[szereg[i]]--;
         dp[i] = dp[i-1];
         if (bilans_wystapien[szereg[i]] == 0)
             dp[i] = max(dp[i],dp[idx_pierwszego[szereg[i]]]+1);
     }
-    printf("%d",dp[szereg.size()-1]);
+
+    if (n == 1)
+        printf("1");
+    else
+        printf("%d",dp[n-1]);
 
     return 0;
 }
