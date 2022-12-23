@@ -39,10 +39,7 @@ int main()
             dp[i] = max(dp[i],dp[idx_pierwszego[szereg[i]]]+1);
     }
 
-    if (n == 1)
-        printf("1");
-    else
-        printf("%d",dp[n-1]);
+    printf("%d",dp[n-1]);
 
     return 0;
 }
