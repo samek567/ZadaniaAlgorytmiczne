@@ -30,6 +30,9 @@ set<Element_seta> S;
 
 int main()
 {
+    // O(n * logn * logn)
+    // Mamy podwojnego seta zeby zmniejszyc prawdopodobienstwo kolizji z 10^9 do 10^18, jak sie chce jeszcze zmiejszyc to mozna,
+    // kolejne zmienne do structa dostawiac.
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
