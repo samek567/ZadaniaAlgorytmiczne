@@ -11,7 +11,6 @@ int main()
     cout.tie(0);
 
     cin >> n >> k;
-    k++;
 
     lewo = 1;
     prawo = ((long long)1 << k) / 2;

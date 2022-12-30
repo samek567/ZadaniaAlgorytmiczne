@@ -2,7 +2,7 @@
 
 using namespace std;
 
-long long p = 0, min_wyn = 1e9;
+long long p = 0, min_wyn = 1e18+20;
 
 int main()
 {
