@@ -5,8 +5,8 @@
 using namespace std;
 
 long long n = 0, d = 0, wczytana_liczba = 0, poczatek = 0, koniec = 0, srodek = 0, DELTA_SIZE = 4, max_val = 0, ile_mamy = 0;
-vector<vector<long long>> liczby;
-vector<long long> posortowane_liczby;
+vector<vector<int>> liczby;
+vector<int> posortowane_liczby;
 vector<vector<bool>> czy_bylismy;
 vector<int> delta_X = {0,0,-1,1};
 vector<int> delta_Y = {1,-1,0,0};
@@ -81,7 +81,7 @@ int main()
             poczatek = srodek;
     }
 
-    printf("%lld",posortowane_liczby[koniec]);
+    printf("%d",posortowane_liczby[koniec]);
 
     return 0;
 }
