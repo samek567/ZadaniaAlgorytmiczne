@@ -37,7 +37,6 @@ vector<int> idxy_w_drzewie_przedzialowym;
 vector<Budowanie_drzewa_przedzialowego> budowanie_drzewa;
 vector<int> drzewo_przedzialowe;
 vector<pair<int,int>> do_zarymowania; // Jaka wartosc, jaki wierzcholek
-vector<int> liczby;
 
 void update(int v, int val)
 {
@@ -80,7 +79,6 @@ int main()
     for (int i = 0; i < n; ++i)
     {
         cin >> wczytana_liczba;
-        liczby.push_back(wczytana_liczba);
         stat[wczytana_liczba].push_back(i);
     }
 
