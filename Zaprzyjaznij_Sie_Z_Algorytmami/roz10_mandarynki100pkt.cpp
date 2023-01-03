@@ -7,6 +7,7 @@ long long n = 0, nwd = 0;
 
 int main()
 {
+    // 100pkt
     // O(log n) Korzystamy z obserwacji, ze nwd kolejnych dwoch liczb naturalnych to zawsze jeden,
     // skoro NWW(a,b) = a * b / NWD(a,b), to chcemy dzielic przez jak najmniejsza liczbe, czyli jeden zawsze pasi,
     // oraz wtedy n * (n-1) jest drugie najwieksze mozliwe po n * n.
