@@ -1,4 +1,4 @@
-Rozwiazania zadan z OIJ, OIG, OI, Zaprzyjaznij sie z algorytmami, Potyczek Algorytmicznych, ZWOJ-a, Oboz naukowy Ilocamp, oboz naukowy proserwy i innych.
+Rozwiazania zadan z OIJ, OIG, OI, OKI, Zaprzyjaznij sie z algorytmami, Potyczek Algorytmicznych, ZWOJ-a, Oboz naukowy Ilocamp, oboz naukowy proserwy i innych.
 Z kodow mozna spokojnie korzystac.
 Robilem / Robie je podczas przygotowania do 16 OIJ, 17 OIJ, XXX OI.
 
