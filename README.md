@@ -28,7 +28,8 @@ Podstawowych Technik jak:
 - Drzewa przedziałowe (typ punkt-przedział, przedzial-punkt, przedzial-przedzial)
 - Drzewa Binarne
 - Problem plecakowy (dynamicznie)
-- Sumy prefiksowe
+- Sumy prefiksowe 1d
+- Sumy prefiksowe 2d
 - Programowanie dynamiczne 1d, 2d
 - Programowanie dynamiczne na drzewie
 - Zachlany na drzewie
@@ -57,6 +58,7 @@ Podstawowych Pojęć Matematycznych:
 - NWW (Wzór znając NWD)
 - Algorytm Euklidesa (Implementacja, STL)
 - Rozszerzony algorytm euklidesa
+- Arytmetyka modularna
 - Rozklad na czynniki pierwsze w O(sqrt(n))
 - Faktoryzacja z sitem
 - Sito Erastotenesa
