@@ -71,7 +71,7 @@ int querry(int p, int k)
 int main()
 {
     // O(n log n)
-    // Bardzo dziekuje Whistleroosh za pomoc! Jestes mega koksem!
+    // Bardzo dziekuje Whistleroosh za pomoc! Jestes mega koksem!!
     // https://forum.pasja-informatyki.pl/577236/zadanie-palindrom-oig?show=577236#q577236
     ios_base::sync_with_stdio(0);
     cin.tie(0);
