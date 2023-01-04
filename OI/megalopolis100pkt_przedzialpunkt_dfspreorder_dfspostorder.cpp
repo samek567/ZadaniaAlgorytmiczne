@@ -64,6 +64,7 @@ void DFS_post_order(int v)
 
 int main()
 {
+    // O(m log n) - drzewo przedzialowe przedzial-punkt, dfs pre order, dfs post order
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
