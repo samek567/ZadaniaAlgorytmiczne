@@ -1,9 +1,8 @@
-OIJ, OIG na pozór można stwierdzić, że to proste konkursy, gdyż są dla uczniów szkół podstawowych i gimnazjum.
-Jednak bo zobaczeniu kilku zadań można stwierdzić, że ich poziom nie jest łatwy.
-W tym repozytorium znajdują się rozwiązania około 150 zadań, głównie podczas nauki do XVI OIJ.
-Takze zrobilem kilka zadan z ZWOJ-a, Ksiazki IV Oboz naukowy Ilocamp, Ksiazki Oboz naukowy proserwy 2010, Olimpiady Informatycznej
-Każdy może korzystać z rozwiązań, wiem jak irytujące jest jak godzinami nie umie się rozwiązać zadania, więc mam nadzieję,że komuś się przydadzą.
- Większość z pomysłow jest wymyślona przeze mnie, jednak niektóre sa z:
+Rozwiazania zadan z OIJ, OIG, OI, Zaprzyjaznij sie z algorytmami, Potyczek Algorytmicznych, ZWOJ-a, Oboz naukowy Ilocamp, oboz naukowy proserwy.
+Z kodow mozna spokojnie korzystac.
+Robilem / Robie je podczas przygotowania do 16 OIJ, 17 OIJ, XXX OI.
+
+Większość z pomysłow jest wymyślona przeze mnie, jednak niektóre sa z:
 - omówień zadań Olimpijskiego Koła Informatycznego
 - omówień zadań OIJ (kanal youtube OIJ, pliki tekstowe OIJ), OI (kanal youtube OI, pliki tekstowe OI), książeczek OI
 - pomocy użytkowników na Forum Pasja Informatyki (Głównie użytkownik Whistleroosh).
@@ -18,24 +17,37 @@ Powodzenia w przygodzie z algorytmami!
 Podstawowych Technik jak:
 - Wyszukiwanie binarne
 - Wyszukiwanie binarne po wyniku
-- BFS
-- DFS
+- BFS 
+- DFS (preorder, postorder)
 - Maski bitowe
-- Przeszukiwanie z nawrotami
+- Operacje bitowe
+- Systemy liczbowe
+- Przeszukiwanie z nawrotami (Back tracking)
 - Gąsienica (two pointers algorithm)
 - Dijkstra (Set lub Kolejka Priorytetowa)
-- Drzewa przedziałowe (typ punkt-przedział)
+- Drzewa przedziałowe (typ punkt-przedział, przedzial-punkt, przedzial-przedzial)
 - Drzewa Binarne
-- Problem plecakowy
+- Problem plecakowy (dynamicznie)
 - Sumy prefiksowe
-- Programowanie dynamiczne
+- Programowanie dynamiczne 1d, 2d
+- Programowanie dynamiczne na drzewie
+- Zachlany na drzewie
 - Find and Union
 - Wyszukiwanie lidera
 - Kilka podstawowych algorytmów o podciągach spójnych i niespójnych
 - Algorytmy zachlanne
 - Interpretacja grafu jako lista sąsiedztwa
+- Podzial grafu na Silnie spojne
+- Podzial grafu na silnie spojne skladowe
 - Sortowanie Topologiczne
+- Dynamiki na dag-ach
 - Zliczanie
+- Koszt zamortyzowany
+- Hashe(z binary searchem, drzewami przedzialowymi(np palindrom querries cses))
+- KMP z tablica pi.
+- Pierwiastki(przedzialy)
+- Pierwiasti (spostrzerzenie, ze np, a <= n lub b <= n i dzieki temu cos mamy)
+- 2 sety (jeden po idx-ach jeden po wartosciach) np. (Wyprzedzanie XXX OI, Plakatowanie XV OI od gory, Tamy final 5 OIG)
 
 Podstawowych Pojęć Matematycznych:
 - Suma ciągu (króluje na OIJ!)
@@ -44,6 +56,9 @@ Podstawowych Pojęć Matematycznych:
 - NWD
 - NWW (Wzór znając NWD)
 - Algorytm Euklidesa (Implementacja, STL)
+- Rozszerzony algorytm euklidesa
+- Rozklad na czynniki pierwsze w O(sqrt(n))
+- Faktoryzacja z sitem
 - Sito Erastotenesa
 - Kombinacje
 
@@ -58,6 +73,7 @@ Podstawowych Struktur danych i poleceń w c++:
 - Stos
 - Kolejka priorytetowa
 - Kolejka monotonniczna
+- Stos monotonniczny (plakatowanie)
 - lista dwukierunkowa (deque)
 - Biblioteka standardowa (sortowanie)
 - Struktury (Przeciazanie operatorów ==, < , >)
