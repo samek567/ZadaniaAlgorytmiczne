@@ -31,7 +31,7 @@ bool czy_palindromniczna(string ciag)
 
 int main()
 {
-    // O(log n)
+    // O(log n), 100pkt
     // Najpierw szukamy najwiekszej liczby palindromniczej, ktora jest < wczytana, potem najmniejszej liczby palindromniczej ktora jest > niz szukana.
     // Korzystamy z obserwacji, ze np jesli wczytana liczba to 53562, to liczby palindromnicze musza byc parami - i, n-i-1 to szukamy jak najwiekszej
     // liczby, zeby byly same zera w srodku i to co mamy juz ustawione, bo jak chcemy miec jak najwieksza liczba, to chcemy na pierwszych pozycjach miec
