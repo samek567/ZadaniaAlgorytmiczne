@@ -42,7 +42,7 @@ inline void przetwarzaj_nizszy_max_wyn(int val)
 int main()
 {
     // O(n * m) stos monotonniczny.
-    // Bardzo podobne Plakatowanie XV OI, Dzialka IX OI, Drawing rectangle in histogram SPOJ
+    // Bardzo podobne Plakatowanie XV OI, Dzialka IX OI, Largest rectangle in histogram SPOJ
     /*
     Najpierw znajdujemy maksymalny bok kwadratu odpalajac algorytm histogramowy na kazdym wierszu(katalog SPOJ na moim repozytorium)
     tak jak w zadaniu dzialka. Potem liczymy latwo ile jest dzialek o boku wyn w i-tym wierszu.
