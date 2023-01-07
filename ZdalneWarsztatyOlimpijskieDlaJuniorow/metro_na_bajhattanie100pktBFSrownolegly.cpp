@@ -51,7 +51,7 @@ void DFS_czy_cykl(int v)
 
 int main()
 {
-    // Graf jest drzewem, gdy jest spojny i nie ma cykli. Najpierw sprawdzimy czy jest spojny jednem dfs-em, potem czy nie ma cykli.
+    // Graf jest drzewem,gdy jest spojny i nie ma cykli. Najpierw sprawdzimy czy jest spojny jednem dfs-em, potem czy nie ma cykli.
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
