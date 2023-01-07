@@ -1,87 +1,66 @@
 #include <iostream>
 #include <vector>
-#include <set>
-#include <algorithm>
+#include <queue>
 
 using namespace std;
 
-struct Krawedz
+struct Pole
 {
-    int a;
-    int b;
-    bool operator < (const Krawedz &krawedz) const
-    {
-        if (a == krawedz.a)
-            return b < krawedz.b;
-        return a < krawedz.a;
-    }
+    int y;
+    int x;
 };
 
-int n = 0, m = 0, a_i = 0, b_i = 0, ile = 0;
-bool czy_cykl = false;
-set<Krawedz> krawedzie_set;
-vector<vector<int>> krawedzie;
-vector<bool> czy_odwiedzone;
-
-void DFS_czy_spojny(int v)
-{
-    czy_odwiedzone[v] = true;
-    ile++;
-    for (int i = 0; i < krawedzie[v].size(); ++i)
-        if (czy_odwiedzone[krawedzie[v][i]] == false)
-            DFS_czy_spojny(krawedzie[v][i]);
-}
-
-void DFS_czy_cykl(int v)
-{
-    if (czy_cykl == true)
-        return;
-    czy_odwiedzone[v] = true;
-    for (int i = 0; i < krawedzie[v].size(); ++i)
-    {
-        if (auto it = krawedzie_set.find({v,krawedzie[v][i]}) == krawedzie_set.end() && krawedzie_set.find({krawedzie[v][i],v}) == krawedzie_set.end())
-        {
-            if (czy_odwiedzone[krawedzie[v][i]] == true)
-                czy_cykl = true;
-            krawedzie_set.insert({v,krawedzie[v][i]});
-            DFS_czy_cykl(krawedzie[v][i]);
-        }
-    }
-}
+int n = 0, m = 0, s = 0, y_i = 0, x_i = 0, DELTA_SIZE = 4;
+Pole spr = {-1,-1};
+vector<vector<int>> dp;
+queue<Pole> Q;
+vector<int> delta_y = {-1,1,0,0};
+vector<int> delta_x = {0,0,1,-1};
 
 int main()
 {
-    // Graf jest drzewem,gdy jest spojny i nie ma cykli. Najpierw sprawdzimy czy jest spojny jednem dfs-em, potem czy nie ma cykli.
+    // O(n * m), bfs rownolegly praktycznie kopia zadania bitmapa z 2 etapu VI OI.
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
 
-    cin >> n >> m;
-    krawedzie.assign(n+1,{});
-    czy_odwiedzone.assign(n+1,false);
-    if (n - m != 1)
+    cin >> n >> m >> s;
+    for (int i = 0; i < n; ++i)
     {
-        printf("niedrzewo");
-        return 0;
+        dp.push_back({});
+        for (int j = 0; j < m; ++j)
+            dp[i].push_back(-1);
     }
-    for (int i = 0; i < m; ++i)
+    for (int i = 0; i < s; ++i)
     {
-        cin >> a_i >> b_i;
-        krawedzie[a_i].push_back(b_i);
-        krawedzie[b_i].push_back(a_i);
+        cin >> y_i >> x_i;
+        Q.push({y_i-1,x_i-1});
+        dp[y_i-1][x_i-1] = 0;
     }
-    DFS_czy_spojny(1);
-    if (ile != n)
+
+    while (!Q.empty())
     {
-        printf("niedrzewo");
-        return 0;
+        spr = Q.front();
+        for (int i = 0; i < DELTA_SIZE; ++i)
+        {
+            if (spr.y + delta_y[i] >= 0 && spr.y + delta_y[i] < n && spr.x + delta_x[i] >= 0 && spr.x + delta_x[i] < m)
+            {
+                if (dp[spr.y + delta_y[i]][spr.x + delta_x[i]] == -1)
+                {
+                    dp[spr.y + delta_y[i]][spr.x + delta_x[i]] = dp[spr.y][spr.x] + 1;
+                    Q.push({spr.y + delta_y[i],spr.x + delta_x[i]});
+                }
+            }
+        }
+        Q.pop();
     }
-    fill(czy_odwiedzone.begin(), czy_odwiedzone.end(),false);
-    DFS_czy_cykl(1);
-    if (czy_cykl == true)
-        printf("niedrzewo");
-    else
-        printf("drzewo");
+
+    for (int i = 0; i < n; ++i)
+    {
+        for (int j = 0; j < m; ++j)
+            printf("%d ",dp[i][j]);
+        printf("\n");
+    }
 
     return 0;
 }
