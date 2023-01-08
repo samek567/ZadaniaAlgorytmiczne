@@ -23,6 +23,7 @@ vector<Punkt> punkty;
 
 int main()
 {
+    // O(n log n) Wazna jest linia 14, zeby w przypadku remisow po x najpierw przetworzyc poczatki, bo innaczej zanizy wynik!
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);

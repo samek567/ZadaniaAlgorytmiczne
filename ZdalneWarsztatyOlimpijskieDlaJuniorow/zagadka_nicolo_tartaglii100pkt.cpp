@@ -6,6 +6,7 @@ ll z = 0, p = 0, q = 0, poczatek = 0, koniec = 0, srodek = 0;
 
 int main()
 {
+    // Binary search po wyniku.
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
