@@ -35,6 +35,8 @@ void dfs(ll v)
 
 int main()
 {
+    // O(n)
+    // https://forum.pasja-informatyki.pl/577865/speedrun-oij-ii-etap
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
