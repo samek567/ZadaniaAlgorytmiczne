@@ -1,7 +1,37 @@
 #include <iostream>
-#include <climits>
+#include <vector>
 
 using namespace std;
+typedef long long ll;
+
+ll n = 0, wczytana_liczba = 0, cnt = 0, wyn = 0, min_wyn = 1e15+5;
+vector<ll> rodzice;
+vector<ll> numer_spojnej;
+
+void dfs(ll v)
+{
+    numer_spojnej[v] = cnt;
+    if (numer_spojnej[rodzice[v]] == cnt)
+    {
+        // Odtwarzamy wynik dla spojnej skladowej. Wauwaz, ze najmniejszy wynik musi zaczynac sie w numer_spojnej[rodzice[v]]
+        int wierzcholek_docelowy = rodzice[v];
+        int wierzcholek_spr = rodzice[v];
+        while (true)
+        {
+            if (wierzcholek_spr == wierzcholek_docelowy && wyn != 0)
+                break;
+            wyn += wierzcholek_spr;
+            wierzcholek_spr = rodzice[wierzcholek_spr];
+        }
+    }
+    else if (numer_spojnej[rodzice[v]] == -1)
+        dfs(rodzice[v]);
+    else
+    {
+        wyn = 1e15+5+5;
+        return;
+    }
+}
 
 int main()
 {
@@ -9,70 +39,26 @@ int main()
     cin.tie(0);
     cout.tie(0);
 
-    int n = 0;
-    int aktualna_liczba = 0;
-    int stopien_cyklu = 0;
-    int j = 0;
-    long long suma = 0;
-    long long t_suma = LLONG_MAX;
-    bool czy_pierwszy_raz;
-    bool czy_pierwszy_raz_k;
-    bool czy_koniec_cyklu;
-
     cin >> n;
-
-    int liczby[n+1];
-    int cykle[n+1] = {0};
-
-    for (int i = 1; i <= n; ++i)
+    numer_spojnej.assign(n+1,-1);
+    rodzice.push_back(0);
+    for (int i = 0; i < n; ++i)
     {
-        cin >> aktualna_liczba;
-        liczby[i] = aktualna_liczba;
+        cin >> wczytana_liczba;
+        rodzice.push_back(wczytana_liczba);
     }
 
     for (int i = 1; i <= n; ++i)
     {
-        if (cykle[i] != 0)
+        if (numer_spojnej[i] == -1)
         {
-            continue;
-        }
-        stopien_cyklu++;
-        j = i;
-        suma = 0;
-        czy_pierwszy_raz = true;
-        czy_pierwszy_raz_k = true;
-        czy_koniec_cyklu = false;
-
-        while(true)
-        {
-            if (cykle[j] == 0)
-            {
-                cykle[j] = stopien_cyklu;
-            }
-            else if (cykle[j] == stopien_cyklu) // Znalezlismy cykl! Teraz tylko sumujemy cykl.
-            {
-                for (int k = j; liczby[k] != liczby[j] || czy_pierwszy_raz_k == true;) // Tu jest blad
-                {
-                    czy_pierwszy_raz_k = false;
-                    suma += liczby[k];
-                    k = liczby[k];
-                }
-                if (suma < t_suma)
-                {
-                    t_suma = suma;
-                }
-                //cout << "Breakujemy i: " << i << endl;
-                //cout << "Suma: " << suma << endl;
-                break; // Odtwarzamy droge
-            }
-            else // Znalezlismy inny cykl, Wiec nie idziemy, bo zawsze bedzie tak duzej.
-            {
-                break;
-            }
-            j = liczby[j];
+            wyn = 0;
+            dfs(i);
+            min_wyn = min(min_wyn,wyn);
+            cnt++;
         }
     }
+    printf("%lld",min_wyn);
 
-    printf("%lld",t_suma);
     return 0;
 }
