@@ -2,68 +2,66 @@
 #include <algorithm>
 
 using namespace std;
+typedef long long ll;
+
+ll a = 0, b = 0, c = 0, d = 0, wysokosc = 0, GCD = 0;
+string ciag;
 
 int main()
 {
+    /*
+    O(n)
+    a - wysokosc duzego prostokata
+    b - szerokosc duzego prostokata
+    c - wysokosc malego prostokata
+    d - szerokosc malego prostokata
+    Korzystamy z tw. Talesa a / b = c / d => a / b * c = d.
+    Sprawdzamy czy mozemy isc jedno w gore. Mozemy gdy c + 1 < d.
+    */
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
 
-    string ciag;
-    double wysokosc_g = 0;
-    double szerokosc_g = 0;
-    long long wysokosc_g_int = 0;
-    long long szerokosc_g_int = 0;
-    double proporcja_g = 0;
-    double proporcja_b = 0;
-    double wysokosc_b = 0;
-    double szerokosc_b = 0;
     cin >> ciag;
-    for (int i = 0; i < ciag.size(); i++)
+    for (int i = 0; i < ciag.size(); ++i)
     {
-        if (ciag[i] == 'P')
-        {
-            szerokosc_g++;
-            szerokosc_g_int++;
-        }
+        if (ciag[i] == 'G')
+            a++;
         else
-        {
-            wysokosc_g++;
-            wysokosc_g_int++;
-        }
+            b++;
     }
+    GCD = __gcd(a,b);
+    a /= GCD;
+    b /= GCD;
 
-    proporcja_g = wysokosc_g / szerokosc_g;
-
-    for (int i = 0; i < ciag.size(); i++)
+    for (int i = 0; i < ciag.size(); ++i)
     {
-        proporcja_b = (wysokosc_b+1) / szerokosc_b;
-        if (proporcja_b <= proporcja_g)
-        {
-            if (ciag[i] == 'G')
-            {
-                wysokosc_b++;
-            }
-            else
-            {
-                cout << "NIE";
-                return 0;
-            }
-        }
+        if (d == 0)
+            wysokosc = 0;
         else
+            wysokosc = (long double)a * (long double)d / (long double)b;
+        if ((long double)c+1 <= wysokosc) // Idziemy w gore
         {
             if (ciag[i] == 'P')
             {
-                szerokosc_b++;
-            }
-            else
-            {
-                cout << "NIE";
+                printf("NIE");
                 return 0;
             }
+            else
+                c++;
+        }
+        else // Idziemy w prawo
+        {
+            if (ciag[i] == 'G')
+            {
+                printf("NIE");
+                return 0;
+            }
+            else
+                d++;
         }
     }
+    printf("%lld/%lld",a,b);
 
-    cout << (wysokosc_g_int / __gcd(wysokosc_g_int,szerokosc_g_int)) << "/" << (szerokosc_g_int / __gcd(wysokosc_g_int,szerokosc_g_int));
     return 0;
 }
