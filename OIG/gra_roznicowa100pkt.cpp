@@ -16,6 +16,7 @@ int main()
 
     cin >> n >> p;
     reszty.assign(p,0);
+    
     for (int i = 0; i < n; ++i)
     {
         cin >> wczytana_liczba;

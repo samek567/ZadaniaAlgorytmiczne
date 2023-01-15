@@ -45,6 +45,6 @@ int main()
     }
     for (int i = 0; i < m; ++i)
         printf("%d\n",wyn[i]);
-    
+
     return 0;
 }
