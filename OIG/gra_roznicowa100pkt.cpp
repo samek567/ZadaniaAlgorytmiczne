@@ -26,6 +26,6 @@ int main()
         if (reszty[liczby[i] % p] == 1)
             wyn++;
     printf("%d",wyn);
-    
+
     return 0;
 }
