@@ -11,6 +11,8 @@ vector<vector<int>> dp;
 
 int main()
 {
+    // O(n^2) dynamik. dp[i][j] - min koszt, zeby spojny podciag i,i+1,i+2... j byl palindromem.
+    // Zauwazmy, ze zawsze oplaca nam sie wykonywac mina z usuniecia i dodania litery x, bo mozemy albo usunac, albo symetrycznie dodac.
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
