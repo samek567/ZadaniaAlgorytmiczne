@@ -1,127 +1,69 @@
-#include <stdio.h>
-#include <time.h>
 #include <iostream>
+#include <vector>
+
 using namespace std;
+typedef long long ll;
 
-int zamiana(char literka)
+string ciag;
+int suma = 0, ile_minus = 97; // ile trzeba zeby przekonwertowac do ASCII
+ll wyn = 0, wyn_ile = 0, ile_par = 0;
+vector<vector<vector<bool>>> stat;
+vector<vector<int>> sumy_prefiksowe;
+
+int main()
 {
-    return int(literka) - int('a');
-}
+    // O(26*26*n) - zakladamy, ze srodek napisu to ciag[i] i liczymy ile jest trojek o srodku w ciag[i]
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+    cout.tie(0);
 
-
-int main () {
-    string ciag = "";
     cin >> ciag;
-    long long P[26][ciag.length()];
-
-
-    for(int i = 0; i < 26;i++)
+    for (int i = 0; i < 26; ++i)
     {
-        if(zamiana(ciag[0]) == i)
+        stat.push_back({});
+        for (int j = 0; j < 26; ++j)
         {
-            P[i][0] = 1;
+            stat[i].push_back({});
+            for (int k = 0; k < 26; ++k)
+                stat[i][j].push_back(false);
         }
-        else P[i][0] = 0;
     }
-    for(long long i = 1; i < ciag.length();i++)
+    for (char i = 'a'; i <= 'z'; ++i)
     {
-        for(int j = 0; j < 26; j++)
+        suma = 0;
+        sumy_prefiksowe.push_back({});
+        for (int j = 0; j < ciag.size(); ++j)
         {
-            if(zamiana(ciag[i]) == j)
+            if (ciag[j] == i)
+                suma++;
+            sumy_prefiksowe[i-ile_minus].push_back(suma);
+        }
+    }
+    for (int i = 1; i < ciag.size()-1; ++i)
+    {
+        for (char j = 'a'; j <= 'z'; ++j)
+        {
+            if (j == ciag[i])
+                continue;
+            for (char k = 'a'; k <= 'z'; ++k)
             {
-                P[j][i] = P[j][i - 1] + 1;
-            }
-            else P[j][i] = P[j][i - 1];
-        }
-    }
-    /*
-    for(int i = 0; i < ciag.length();i++)
-    {
-        for(int j = 0; j < 26; j++)
-        {
-            cout << P[j][i] << " ";
-        }
-        cout << "\n";
-    }
-    */
-    long long Lj = 0;
-    long long Rj = 0;
-    long long wynik = 0;
-    for(long long j = 1; j < ciag.length();j++)
-    {
-        //Lj = j - P[ciag[j]][j] + 1;
-        Lj = j - P[zamiana(ciag[j])][j] + 1;
-        // ile jest b przed nami P[ciag[j]][ciag.length() - 1] - P[ciag[j]][j]
-        //Rj = ciag.length() - j - 1 -(P[ciag[j]][ciag.length() - 1] - P[ciag[j]][j]);
-        Rj = ciag.length() - j - 1 -(P[zamiana(ciag[j])][ciag.length() - 1] - P[zamiana(ciag[j])][j]);
-        //cout << "j: " << j << " Lj: " << Lj << " Rj: " << Rj << "\n";
-        wynik = wynik + Lj * Rj;
-    }
-    cout << wynik << " ";
-    long long L[26];
-    long long F[26];
-    long long index = 0;
-    for(int i = 0; i < 26; i++)
-    {
-        index = 0;
-        while(P[i][index] == 0)
-        {
-            index++;
-            if(index == ciag.length())
-            {
-                index = -1;
-                break;
-            }
-        }
-        F[i] = index;
-        index = ciag.length() - 1;
-        while(P[i][index] == P[i][index - 1])
-        {
-            index--;
-            if(index == 0)
-            {
-                if(P[i][index] == 0)
-                    index = -1;
-                else
-                    index = 0;
-                break;
-            }
-        }
-        L[i] = index;
-    }
-    /*
-      for(int i = 0; i < 26;i++)
-      {
-          cout << F[i] << " ";
-      }
-      cout << "\n";
-      for(int i = 0; i < 26;i++)
-      {
-          cout << L[i] << " ";
-      }
-      cout << "\n";
-      */
-    wynik = 0;
-    for(int i = 0; i < 26;i++)
-    {
-        for(int j = 0; j < 26;j++)
-        {
-            if(F[i] != -1 && L[j] != -1 && L[j] > F[i])
-            {
-                for(int k = 0; k < 26;k++)
+                if (k == ciag[i])
+                    continue;
+                ile_par = sumy_prefiksowe[j-ile_minus][i-1] * (sumy_prefiksowe[k-ile_minus][ciag.size()-1] - sumy_prefiksowe[k-ile_minus][i]);
+                if (sumy_prefiksowe[j-ile_minus][i-1] > 0 && sumy_prefiksowe[k-ile_minus][ciag.size()-1] - sumy_prefiksowe[k-ile_minus][i] > 0)
                 {
-                    if(k != i && k != j)
-                    {
-                        if(P[k][L[j]] != P[k][F[i]])
-                        {
-                            wynik++;
-                        }
-
-                    }
+                    stat[int(j) - ile_minus][int(ciag[i]) - ile_minus][int(k) - ile_minus] = true;
+                    wyn += ile_par;
                 }
             }
         }
     }
-    cout << wynik;
+    for (int i = 0; i < 26; ++i)
+        for (int j = 0; j < 26; ++j)
+            for (int k = 0; k < 26; ++k)
+                if (stat[i][j][k] == true)
+                    wyn_ile++;
+    printf("%lld %lld",wyn,wyn_ile);
+
     return 0;
 }
