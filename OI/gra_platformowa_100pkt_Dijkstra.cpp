@@ -35,7 +35,7 @@ set<Element_seta> S;
 
 int main()
 {
-    // O(n log n + z) Puszczamy Dijkstre.
+    // O(n log n + z) Puszczamy Dijkstre rownolegle.
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
