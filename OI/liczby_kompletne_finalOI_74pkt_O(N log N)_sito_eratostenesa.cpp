@@ -9,6 +9,7 @@ vector<int> sumy_prefiksowe(1e7+1,0);
 
 int main()
 {
+    // O(N log N) - sito Eratostenesa
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
