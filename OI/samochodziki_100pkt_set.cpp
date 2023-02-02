@@ -26,6 +26,7 @@ set<Element_seta> S;
 
 int main()
 {
+    // Set / kolejka priorytetowa. O(N lg N). Skoro elementy sa do miliona, to mozna zamiast seta drzewo przedzialowe.
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
