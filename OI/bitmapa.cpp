@@ -1,73 +1,67 @@
 #include <iostream>
+#include <vector>
 #include <queue>
 
 using namespace std;
 
-struct Element
+struct Pole
 {
     int y;
     int x;
 };
 
+int n = 0, m = 0, delta_SIZE = 4;
+char wczytany_znak;
+vector<vector<int>> dp;
+vector<int> delta_Y = {-1,1,0,0};
+vector<int> delta_X = {0,0,1,-1};
+queue<Pole> Q;
+
 int main()
 {
+    // O(N*M), BFS rownolegly
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
 
-    int n = 0, m = 0;
-    char wczytany_znak;
-
     cin >> n >> m;
-
-    int rozlewanie[n][m];
-    queue<Element> Q;
-
     for (int i = 0; i < n; ++i)
     {
+        dp.push_back({});
         for (int j = 0; j < m; ++j)
         {
             cin >> wczytany_znak;
-            if (wczytany_znak == '0')
+            if (wczytany_znak == '1')
             {
-                rozlewanie[i][j] = -1;
-            }
-            else
-            {
-                rozlewanie[i][j] = 0;
+                dp[i].push_back(0);
                 Q.push({i,j});
             }
+            else
+                dp[i].push_back(-1);
         }
     }
 
     while(!Q.empty())
     {
-        Element spr = Q.front();
-        int X = 4;
-        vector<int> delta_x = {1,-1,0,0};
-        vector<int> delta_y = {0,0,1,-1};
-
-        for (int i = 0; i < X; ++i)
+        Pole spr = Q.front();
+        for (int i = 0; i < delta_SIZE; ++i)
         {
-            if (spr.y + delta_y[i] >= 0 && spr.y + delta_y[i] < n && spr.x + delta_x[i] >= 0 && spr.x + delta_x[i] < m)
+            if (spr.y + delta_Y[i] >= 0 && spr.y + delta_Y[i] < n && spr.x + delta_X[i] >= 0 && spr.x + delta_X[i] < m)
             {
-                if (rozlewanie[spr.y + delta_y[i]][spr.x + delta_x[i]] == -1)
+                if (dp[spr.y + delta_Y[i]][spr.x + delta_X[i]] == -1)
                 {
-                    rozlewanie[spr.y + delta_y[i]][spr.x + delta_x[i]] = rozlewanie[spr.y][spr.x] + 1;
-                    Q.push({spr.y + delta_y[i],spr.x + delta_x[i]});
+                    dp[spr.y + delta_Y[i]][spr.x + delta_X[i]] = dp[spr.y][spr.x] + 1;
+                    Q.push({spr.y + delta_Y[i], spr.x + delta_X[i]});
                 }
             }
         }
-
         Q.pop();
     }
 
     for (int i = 0; i < n; ++i)
     {
         for (int j = 0; j < m; ++j)
-        {
-            cout << rozlewanie[i][j] << " ";
-        }
+            cout << dp[i][j] << " ";
         cout << endl;
     }
     return 0;

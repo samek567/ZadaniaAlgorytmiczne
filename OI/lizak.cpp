@@ -3,137 +3,81 @@
 
 using namespace std;
 
-struct Przedzial
-{
-    int l;
-    int k;
-};
+int n = 0, m = 0, a = 0, idx_pierwszej_W = 1e7, idx_ostatniej_W = -1e7;
+string lizak;
+vector<pair<int,int>> zap; // first - poczatek, second - koniec zapytania (oba idx-y)
 
-int n = 0, m = 0, wczytana_suma = 0, idx_pierwszej_wanilli = -1, idx_ostatniej_wanilli = -1, poczatek_przedzialu = 1, koniec_przedzialu = 0;
-char wczytany_znak;
-vector<int> lizak;
-Przedzial przedzialy[2000009];
-
-void obcinaj_przedzial()
+void przetwarzaj(int l, int p)
 {
-    int p = poczatek_przedzialu;
-    int k = koniec_przedzialu;
     int suma = 0;
-
-    for (int i = poczatek_przedzialu; i <= koniec_przedzialu; ++i)
+    for (int i = l; i <= p; ++i)
     {
-        suma += lizak[i];
+        if (lizak[i] == 'T')
+            suma += 2;
+        else
+            suma += 1;
     }
-
-    while (p <= k)
+    while(suma > 0)
     {
-        przedzialy[suma] = {p,k};
-        if (lizak[p] == 2)
-        {
-            p++;
-        }
-        else if (lizak[k] == 2)
-        {
-            k--;
-        }
-        else // wiemy ze jak nie ma truskawki na obu to napewno suma jest tez 2 czyli oba sa waniliowe!
-        {
-            p++;
-            k--;
-        }
+        zap[suma] = {l,p};
         suma -= 2;
-        przedzialy[suma] = {p,k};
+        if (lizak[l] == 'T')
+            l++;
+        else if (lizak[p] == 'T')
+            p--;
+        else
+        {
+            l++;
+            p--;
+        }
     }
 }
 
 int main()
 {
-    // Rozwiazanie w O(n+m) opiera sie na prostej obserwacji, ze z dowolnego fragmentu lizaka mozemy obciac fragment o sumie 2.
-    // Wynika to z tego, ze jesli ktores z nich bedzie truskawka, to mamy sume 2, a jak oba nie beda truskawka to beda oba wanilia, czyli mozemy obciac obydwa.
-    // Szukamy wiec najblizszego przedzialu o sumie parzystej i niepatrzystej i mamy rozwiazanie skracamy te 2 fragmenty dopoki mozemy
-    // Zauwazamy, ze pierwsza spotkana wanilia zmienia znak, wiec szukamy pierwszej wanilli z lewej lub prawej ktora jest blizesz brzegu lewa lewego i prawa prawego.
-    // I tak dzielimy na znak o nieparzystej / parzystej sumie zalezy od sytuacji jaka byla poczatkowego fragmentu. Napelniamy statystyki tych przedzialow i potem w O(1) odpowiadamy na kazde zapytanie.
-    // O(n+m) , bo mamy n liczb i m zapytan.
+    // O(N+M) korzystamy z obserwacji, ze zawsze fragment lizaka mozna obciac o 2,
+    // wiec szukamy fragmentu o najwiekszej sumie parzystego i nieparzystego, szukajac pierszego wystapienia smaku waniliowego.
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
 
-    for (int i = 0; i < 2000009; ++i)
+    cin >> n >> m >> lizak;
+    zap.assign(2000005,{-1,-1});
+    przetwarzaj(0,n-1);
+    if (n != 1)
     {
-        przedzialy[i] = {-1,-1};
-    }
-
-    lizak.push_back(-1);
-
-    cin >> n >> m;
-
-    koniec_przedzialu = n;
-
-    for (int i = 0; i < n; ++i)
-    {
-        cin >> wczytany_znak;
-        if (wczytany_znak == 'T')
+        for (int i = 0; i < n; ++i)
         {
-            lizak.push_back(2);
-        }
-        else
-        {
-            lizak.push_back(1);
-        }
-    }
-
-    if (lizak.size() == 2 && lizak[1] == 1)
-    {
-        przedzialy[1] = {1,1};
-    }
-    else
-    {
-        obcinaj_przedzial();
-
-        for (int i = 1; i <= n; ++i)
-        {
-            if (lizak[i] == 1)
+            if (lizak[i] == 'W')
             {
-                idx_pierwszej_wanilli = i;
-                break;
+                idx_pierwszej_W = min(idx_pierwszej_W,i);
+                idx_ostatniej_W = max(idx_ostatniej_W,i);
             }
         }
-
-        for (int i = n; i >= 1; --i)
+        if (idx_pierwszej_W != 1e7)
         {
-            if (lizak[i] == 1)
-            {
-                idx_ostatniej_wanilli = i;
-                break;
-            }
-        }
-
-        if (idx_pierwszej_wanilli != -1 && idx_ostatniej_wanilli != -1) // Obcinamy i robimy nieparzysty przedzial.
-        {
-            if (idx_pierwszej_wanilli < n - idx_ostatniej_wanilli + 1)
-            {
-                poczatek_przedzialu = idx_pierwszej_wanilli + 1;
-            }
+            if (idx_pierwszej_W == n-1)
+                przetwarzaj(0,n-2);
+            else if (idx_ostatniej_W == 0)
+                przetwarzaj(1,n-1);
             else
             {
-                koniec_przedzialu = idx_ostatniej_wanilli - 1;
+                if (idx_pierwszej_W + 1 < n - idx_ostatniej_W)
+                    przetwarzaj(idx_pierwszej_W+1,n-1);
+                else
+                    przetwarzaj(0,idx_ostatniej_W-1);
             }
-            obcinaj_przedzial();
         }
     }
 
-
-    for (int i = 0; i < m; ++i)
+    while(m--)
     {
-        cin >> wczytana_suma;
-        if (przedzialy[wczytana_suma].l == -1 && przedzialy[wczytana_suma].k == -1)
-        {
-            cout << "NIE" << "\n";
-        }
+        cin >> a;
+        if (zap[a].first == -1)
+            cout << "NIE" << '\n';
         else
-        {
-            cout << przedzialy[wczytana_suma].l << " " << przedzialy[wczytana_suma].k << "\n";
-        }
+            cout << zap[a].first + 1 << " " << zap[a].second + 1 << '\n';
     }
+
     return 0;
 }
