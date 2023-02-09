@@ -3,42 +3,41 @@
 
 using namespace std;
 
-int n = 0, wczytany_sasiad = 0, ktory_kolor = 1;
-vector<int> sasiedzi, cykle;
+int n = 0, wyn = 0;
+vector<int> krawedz;
+vector<bool> czy_bylismy;
+
+void DFS(int v)
+{
+    czy_bylismy[v] = true;
+    if (czy_bylismy[krawedz[v]] == false)
+        DFS(krawedz[v]);
+}
 
 int main()
 {
+    // O(N), liczymy ile jest silnie spojnych
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
 
     cin >> n;
+    krawedz.assign(n+1,0);
+    czy_bylismy.assign(n+1,false);
 
-    cykle.assign(n+1,0);
-
-    sasiedzi.push_back(0);
-    for (int i = 1; i <= n; ++i)
-    {
-        cin >> wczytany_sasiad;
-        sasiedzi.push_back(wczytany_sasiad);
-    }
+    for (int i = 0; i < n; ++i)
+        cin >> krawedz[i+1];
 
     for (int i = 1; i <= n; ++i)
     {
-        if (cykle[i] != 0)
+        if (czy_bylismy[i] == false)
         {
-            continue;
+            DFS(i);
+            wyn++;
         }
-        int sprawdzany_idx = i;
-        while(cykle[sprawdzany_idx] == 0)
-        {
-            cykle[sprawdzany_idx] = ktory_kolor;
-            sprawdzany_idx = sasiedzi[sprawdzany_idx];
-        }
-        ktory_kolor++;
     }
 
-    cout << ktory_kolor - 1;
+    cout << wyn << '\n';
 
     return 0;
 }

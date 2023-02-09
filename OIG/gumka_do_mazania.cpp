@@ -1,92 +1,72 @@
 #include <iostream>
 #include <vector>
-#include <climits>
-#include <algorithm>
 
 using namespace std;
 
-struct Wyraz
-{
-    string ciag;
-    int od_ktorego_idx; // Zeby nie kasowac
-};
+int n = 0;
+string ciag, wyn;
+vector<vector<vector<int>>> stat;
+vector<int> idxy_szukajacych; // Szukamy pierwszej wiekszej
+vector<int> idxy_pierwsze;
 
 int main()
 {
+    // O(N)
+    // Mozna bez binary searcha, tylko zachlannie O(ILE_LITER_W_ALFABECIE * N), ale binary search powinien byc troszke szybszy.
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
 
-    int n = 0;
-    int min_wystapienia_i = INT_MAX;
-    int licznik_wystapien = 0;
-    string wczytany_ciag;
-    string wynik;
-    vector<Wyraz> wyrazy;
-
     cin >> n;
-
+    idxy_szukajacych.assign(n,-1);
+    idxy_pierwsze.assign(n,-1);
     for (int i = 0; i < n; ++i)
     {
-        cin >> wczytany_ciag;
-        wyrazy.push_back({wczytany_ciag,0});
+        cin >> ciag;
+        stat.push_back({});
+        for (int j = 0; j < 26; ++j)
+            stat[i].push_back({});
+        for (int j = 0; j < ciag.size(); ++j)
+        {
+            stat[i][(int)ciag[j]-97].push_back(j);
+        }
     }
 
     for (char i = 'z'; i >= 'a'; --i)
     {
-        min_wystapienia_i = INT_MAX;
-
+        int maks_wystapien = 1e9;
         for (int j = 0; j < n; ++j)
         {
-            licznik_wystapien = 0;
-            for (int k = wyrazy[j].od_ktorego_idx; k < wyrazy[j].ciag.size(); ++k)
+            if (stat[j][(int)i-97].size() == 0)
             {
-                if (wyrazy[j].ciag[k] == i)
-                {
-                    licznik_wystapien++;
-                }
+                maks_wystapien = 0;
+                break;
             }
-            min_wystapienia_i = min(min_wystapienia_i,licznik_wystapien);
-        }
-
-        if (min_wystapienia_i == 0 || min_wystapienia_i == INT_MAX)
-        {
-            continue;
-        }
-
-        for (int h = 0; h < min_wystapienia_i; ++h)
-        {
-            wynik += i;
-        }
-
-        // Przesuwanie idxu wskazywanego.
-        for (int f = 0; f < n; ++f)
-        {
-            int licznik = 0;
-            for (int e = wyrazy[f].od_ktorego_idx; e < wyrazy[f].ciag.size(); ++e)
+            int poczatek = -1, koniec = stat[j][(int)i-97].size(), srodek = 0;
+            if (stat[j][(int)i-97][koniec-1] <= idxy_szukajacych[j])
             {
-                if (wyrazy[f].ciag[e] == i)
-                {
-                    licznik++;
-                }
-                if (licznik >= min_wystapienia_i)
-                {
-                    wyrazy[f].od_ktorego_idx = e;
-                    break;
-                }
+                maks_wystapien = 0;
+                break;
             }
+            while(koniec - poczatek > 1)
+            {
+                srodek = (poczatek + koniec) / 2;
+                if (stat[j][(int)i-97][srodek] > idxy_szukajacych[j])
+                    koniec = srodek;
+                else
+                    poczatek = srodek;
+            }
+            idxy_pierwsze[j] = koniec;
+            maks_wystapien = min(maks_wystapien, ((int)stat[j][(int)i-97].size() - 1) - koniec + 1);
         }
-
+        if (maks_wystapien != 0)
+        {
+            for (int j = 0; j < maks_wystapien; ++j)
+                wyn.push_back(i);
+            for (int j = 0; j < n; ++j)
+                idxy_szukajacych[j] = stat[j][(int)i-97][idxy_pierwsze[j] + maks_wystapien - 1];
+        }
     }
-
-    vector<string> do_wyniku;
-    do_wyniku.push_back("bitek");
-    do_wyniku.push_back(wynik);
-
-    sort(do_wyniku.begin(),do_wyniku.end());
-
-    cout << do_wyniku[1];
-
-
+    cout << max(wyn,(string)"bitek") <<  '\n';
     return 0;
 }

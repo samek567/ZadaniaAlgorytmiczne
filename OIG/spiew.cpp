@@ -2,43 +2,37 @@
 
 using namespace std;
 
-int n = 0, ile_uczniow_pod_grupa = 0, wynik = 0;
-char wczytany_znak;
+int n = 0, wyn = 0, ile_powtorzen = 0;
+string ciag;
 
-void aktualizuj_wynik ()
+inline void przetwarzaj()
 {
-    wynik += ile_uczniow_pod_grupa / 3;
-    if (ile_uczniow_pod_grupa % 3 == 1 || ile_uczniow_pod_grupa % 3 == 2)
+    if (ile_powtorzen != 0)
     {
-        wynik++;
+        wyn += ile_powtorzen / 3;
+        if (ile_powtorzen % 3 != 0)
+            wyn++;
+        ile_powtorzen = 0;
     }
-    ile_uczniow_pod_grupa = 0;
 }
 
 int main()
 {
+    // O(N)
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
 
-    cin >> n;
-
+    cin >> n >> ciag;
     for (int i = 0; i < n; ++i)
     {
-        cin >> wczytany_znak;
-        if (wczytany_znak == 'Z')
-        {
-            ile_uczniow_pod_grupa++;
-        }
+        if (ciag[i] == 'Z')
+            ile_powtorzen++;
         else
-        {
-            aktualizuj_wynik();
-        }
+            przetwarzaj();
     }
-
-    aktualizuj_wynik();
-
-    cout << wynik;
+    przetwarzaj();
+    cout << wyn << '\n';
 
     return 0;
 }

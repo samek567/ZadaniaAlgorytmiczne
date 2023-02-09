@@ -1,91 +1,60 @@
 #include <iostream>
-#include <cmath>
-#include <climits>
+#include <vector>
 
 using namespace std;
 
+int n = 0, k = 0, wczytana_liczba1 = 0, wczytana_liczba2 = 0, rozmiar_drzewa = 0;
+vector<int> drzewo;
+vector<vector<int>> dp;
+
 int main()
 {
+    // O(2^N * K), mamy 2^N - 1 wierzcholkow i z kazdego bierzemy petla dp.
+    // Programowanie dynamiczne, dp[i][j] max wyn w drzewie ukorzenionym w wierezcholku i biorac co najwiecej j wierzcholkow.
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
-    long long n = 0;
-    int k = 0;
-    int rozmiar = 0;
-    int liczba1 = 0;
-    int liczba2 = 0;
-    int t_max = 0;
-    int g_max = 0;
+
     cin >> n >> k;
-
-    k = k / 2;
-
-    rozmiar = pow(2,n) - 1;
-
-    int pola [rozmiar];
-
-    for (int i = 0; i < rozmiar; i++)
+    k /= 2;
+    rozmiar_drzewa = (1 << n);
+    for (int i = 0; i < rozmiar_drzewa; ++i)
     {
-        cin >> liczba1 >> liczba2;
-        pola[i] = liczba1 + liczba2;
+        dp.push_back({});
+        for (int j = 0; j <= k; ++j)
+            dp[i].push_back(0);
     }
-
-    for (int i = 0; i < rozmiar;i++)
+    drzewo.push_back(0);
+    for (int i = 1; i <= n; ++i)
     {
-        //cout << pola[i] << " ";
-    }
-
-    int tablica_dynamiczna [rozmiar][k+1];
-
-    for (int i = (rozmiar + 1) / 2 - 1; i < rozmiar; i++)
-    {
-        tablica_dynamiczna[i][0] = 0;
-        for (int j = 1; j <= k; j++)
+        for (int j = 0; j < (1 << (i - 1)); ++j)
         {
-            tablica_dynamiczna[i][j] = pola[i];
+            cin >> wczytana_liczba1 >> wczytana_liczba2;
+            drzewo.push_back(wczytana_liczba1 + wczytana_liczba2);
         }
     }
 
-    for (int i = (rozmiar + 1) / 2 - 2; i >= 0; i--)
+    for (int i = rozmiar_drzewa / 2; i < rozmiar_drzewa; ++i)
     {
-        tablica_dynamiczna[i][0] = 0;
-        tablica_dynamiczna[i][1] = pola[i];
-        for (int j = 2; j <= k; j++)
+        for (int j = 1; j <= k; ++j)
+            dp[i][j] = max(0,drzewo[i]);
+    }
+
+    for (int i = rozmiar_drzewa / 2 - 1; i >= 1; --i)
+    {
+        for (int j = 1; j <= k; ++j)
         {
-            t_max = INT_MIN;
-            for (int y = 0; y < j; y++)
-            {
-                if (tablica_dynamiczna[2*i+1][y]  + tablica_dynamiczna[2*i+2][j-y-1] > t_max)
-                {
-                    t_max = tablica_dynamiczna[2*i+1][y]  + tablica_dynamiczna[2*i+2][j-y-1];
-                }
-            }
-            /*
-            if (i == 2)
-            {
-                //cout << "dodajemy: " << "J: " << j << "Wartosc: " << t_max+pola[i] << endl;
-            }
-            */
-            tablica_dynamiczna[i][j] = t_max + pola[i];
+            dp[i][j] = drzewo[i];
+            int max_sum = -1e9-5;
+            for (int f = 0; f <= j-1; ++f)
+                max_sum = max(max_sum,dp[i*2][f] + dp[i*2+1][j - f - 1]);
+            dp[i][j] += max_sum;
+            dp[i][j] = max(dp[i][j],drzewo[i]);
+            dp[i][j] = max(dp[i][j],dp[i][j-1]);
         }
     }
 
-    for (int i = 0; i <= k; i++)
-    {
-        if (tablica_dynamiczna[0][i] > g_max)
-        {
-            g_max = tablica_dynamiczna[0][i];
-        }
-    }
+    cout << dp[1][k] << '\n';
 
-
-    /*
-    for (int i = 0; i <= k; i++)
-    {
-       cout << tablica_dynamiczna[0][i] << "  ";
-    }
-*/
-
-    cout << g_max;
     return 0;
 }

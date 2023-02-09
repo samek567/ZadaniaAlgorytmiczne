@@ -4,71 +4,70 @@
 using namespace std;
 typedef long long ll;
 
-int n = 0, t = 0, a_i = 0, b_i = 0;
-ll suma_na_przedziale = 0, ile_r_na_przedziale = 0, suma = 0;
-char znak;
-vector<char> znaki;
-vector<ll> ile_n_na_lewo;
-vector<ll> sumy_prefiksowe_r;
-vector<ll> sumy_prefiksowe;
+int n = 0, t = 0, ile = 0, a = 0, b = 0;
+ll sum = 0;
+string ciag;
+vector<int> sumy_prefiksowe_N;
+vector<int> sumy_prefiksowe_R;
+vector<int> ile_lapie;
+vector<ll> sumy_prefixowe_wyn;
 
 int main()
 {
-    // O(n + t)
-    /*
-    Dla kazdego elementu naliczamy ile mial by kolizji z wszystkimi elementami na przeodzie, potem musimy odjac jeszcze
-    dla kazdej takiej liczby ile jest N przed. czyli musimy od sumy odjąć ile_N_przed * ile_r_w_przedziale.
-    */
+    // O(N + T), sumy prefiksowe + statystyki
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
 
-    cin >> n;
-    ile_n_na_lewo.assign(n,0);
-    sumy_prefiksowe.assign(n,0);
-    sumy_prefiksowe_r.assign(n,0);
+    cin >> n >> ciag;
+    ile_lapie.assign(n,0);
     for (int i = 0; i < n; ++i)
     {
-        cin >> znak;
-        znaki.push_back(znak);
+        if (ciag[i] == 'R')
+            sum++;
+        sumy_prefiksowe_R.push_back(sum);
     }
+    sum = 0;
+    for (int i = 0; i < n; ++i)
+    {
+        if (ciag[i] == 'N')
+            sum++;
+        sumy_prefiksowe_N.push_back(sum);
+    }
+    sum = 0;
     for (int i = n-1; i >= 0; --i)
     {
-        ile_n_na_lewo[i] = suma;
-        if (znaki[i] == 'N')
-            suma++;
+        if (ciag[i] == 'N')
+            sum++;
+        else
+            ile_lapie[i] = sum;
     }
-    suma = 0;
+    sum = 0;
     for (int i = 0; i < n; ++i)
     {
-        if (znaki[i] == 'R')
-            suma += ile_n_na_lewo[i];
-        sumy_prefiksowe[i] = suma;
-    }
-    suma = 0;
-    for (int i = 0; i < n; ++i)
-    {
-        if (znaki[i] == 'R')
-            suma++;
-        sumy_prefiksowe_r[i] = suma;
+        sum += ile_lapie[i];
+        sumy_prefixowe_wyn.push_back(sum);
     }
     cin >> t;
-    for (int i = 0; i < t; ++i)
+    while(t--)
     {
-        cin >> a_i >> b_i;
-        a_i--;
-        b_i--;
-        if (a_i == 0)
-        {
-            suma_na_przedziale = sumy_prefiksowe[b_i];
-            ile_r_na_przedziale = sumy_prefiksowe_r[b_i];
-        }
+        cin >> a >> b;
+        a--;
+        b--;
+        int ile_na_przedziale_R = 0, ile_na_przedziale_N = 0;
+        ll suma_na_przedziale = 0, wyn = 0;
+        if (a == 0)
+            ile_na_przedziale_R = sumy_prefiksowe_R[b];
         else
-        {
-            suma_na_przedziale = sumy_prefiksowe[b_i] - sumy_prefiksowe[a_i-1];
-            ile_r_na_przedziale = sumy_prefiksowe_r[b_i] - sumy_prefiksowe_r[a_i-1];
-        }
-        printf("%lld\n",suma_na_przedziale - ile_r_na_przedziale * ile_n_na_lewo[b_i]);
+            ile_na_przedziale_R = sumy_prefiksowe_R[b] - sumy_prefiksowe_R[a-1];
+        if (b != n-1)
+            ile_na_przedziale_N = sumy_prefiksowe_N[n-1] - sumy_prefiksowe_N[b];
+        if (a == 0)
+            suma_na_przedziale = sumy_prefixowe_wyn[b];
+        else
+            suma_na_przedziale = sumy_prefixowe_wyn[b] - sumy_prefixowe_wyn[a-1];
+        wyn = suma_na_przedziale - (ll)ile_na_przedziale_R * (ll)ile_na_przedziale_N;
+        cout << wyn << '\n';
     }
     return 0;
 }

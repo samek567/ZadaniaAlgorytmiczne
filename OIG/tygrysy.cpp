@@ -40,13 +40,6 @@ int main()
 
     sort(tygrysy.begin(),tygrysy.end());
 
-    /*
-    for (auto i : tygrysy)
-    {
-        cout << i.r << endl;
-    }
-    */
-
     for (int i = 0; i < n; ++i)
     {
         if (tygrysy[i].czy_sprawdzone == true)
