@@ -11,7 +11,6 @@ struct Liczba
 {
     int wartosc;
     char znak;
-    // Sortowanie uzyte w moim wykonaniu zadania zwyciezcy z 1 edycji OIG uzyty na platformie szkopol - kod wlasny troche podmienione
     bool operator < (const Liczba& liczba) const
     {
         return wartosc < liczba.wartosc;
