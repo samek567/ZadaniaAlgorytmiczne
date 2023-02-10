@@ -34,7 +34,7 @@ void DFS_SCC(int v)
 
 int main()
 {
-    // O(N+R+P)
+    // O(N+R+P), podzial grafu na silnie spojne skladowe.
     // 10.02.2023r, Jeden test na szkopule, tam gdzie wypisuje sie NIE, jest niepoprawny(nie wystarczy wypisac dowolnego, tylko trzeba wypisac najmniejszy). W tamtym tescie wynik to, NIE, 2
     ios_base::sync_with_stdio(0);
     cin.tie(0);
