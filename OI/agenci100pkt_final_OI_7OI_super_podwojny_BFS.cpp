@@ -22,7 +22,7 @@ int main()
 {
     // O(N^3), bez czy_bylismy half O(N^4), wchodzi tylko na 66pkt. Jest tablica tablic,
     // zamiast vectora vectorow w czy_bylismy i czy_bylismy_half, bo czas nie przechodzi na vectorach.
-    // Jest omowienie w przygodach Bajtazara
+    // Jest omowienie w przygodach Bajtazara.
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
