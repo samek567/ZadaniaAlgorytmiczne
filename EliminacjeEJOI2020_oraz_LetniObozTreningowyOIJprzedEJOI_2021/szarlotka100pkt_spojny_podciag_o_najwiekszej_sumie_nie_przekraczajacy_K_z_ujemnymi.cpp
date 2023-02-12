@@ -15,7 +15,7 @@ int main()
 {
     // O(N lg N), praktycznie to zadanie, to szukanie spojnego podciagu o najwieszej sumie nie przekraczajacego K.
     // Posortowanie sum prefiksowych i robienie binary searcha dla ujemnych nie dziala, bo dla idx-u i, mozemy trafic na sume prefiksowa z np. idx-u i-5,
-    // idac z setem nie ma tego problemu
+    // idac z setem nie ma tego problemu.
     // Sumy prefiksowe z binary searchem (dla A_i >= 0 ograniczenie) wchodzi na 70pkt.
     // Dla kazdego elementu i, szukamy spojnego podciagu o najwiekszej sumie, zaczynajacego sie i, majacego jak najwieksza sume nie przekraczajaca k, i sprawdzamy min_wyn,
     // potem spojnego podciagu o najmniejszej sumie, >= k, i tak samo sprawdzamy min_wyn.
