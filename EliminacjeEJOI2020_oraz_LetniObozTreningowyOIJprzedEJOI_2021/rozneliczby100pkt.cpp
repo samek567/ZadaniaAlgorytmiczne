@@ -9,7 +9,7 @@ const ll P = 50000000, a = 49999987, b = 22334563;
 
 int main()
 {
-    // O(n) 100 pkt.
+    // O(n) 100 pkt. Statysyki kolizji
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
