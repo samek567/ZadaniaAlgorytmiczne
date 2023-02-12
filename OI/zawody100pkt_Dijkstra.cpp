@@ -29,7 +29,8 @@ set<Element_seta> S;
 
 int main()
 {
-    // Algorytm Dijkstry Linia 57 i 58 baaardzo przyspiesza. Bez tych 2 linii, ten sam kod wchodzi na 70pkt, zamiast 100.
+    // Algorytm Dijkstry, odpalamy Dijsktre z kazdego wierzcholka, ktory wychodzi od wierzcholka "wejsciowego", czyli wierzcholka u numerze 1
+    // Linia 57 i 58 baaardzo przyspiesza. Bez tych 2 linii, ten sam kod wchodzi na 70pkt, zamiast 100.
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
