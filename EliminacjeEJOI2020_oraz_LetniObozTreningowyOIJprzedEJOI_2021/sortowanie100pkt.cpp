@@ -11,7 +11,7 @@ unordered_map<int,pair<int,int>> stat; // Wartosc, ile parzystych, ile nieparzys
 
 int main()
 {
-    // O(n log n)
+    // O(n log n), na pomysl, ze na idx-ach parzystych mozemy dowolnie permutowac, i dowolnie na idx-ach nieparzystych mozna dowolnie permutowac.
     // Dzieki! https://forum.pasja-informatyki.pl/577887/zadanie-sortowanie?show=577887#q577887
     ios_base::sync_with_stdio(0);
     cin.tie(0);
