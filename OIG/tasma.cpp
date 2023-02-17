@@ -11,7 +11,10 @@ unordered_set<int> S;
 int main()
 {
     // O(M * N lg N)
-    // Mozna zamiast seta, posortowac elementy i kazdemu przypisac idx-wartosci i zamiast seta trzymac na tablicy(podobny motyw w zadaniach z ilocampow)
+    // Mozna zamiast seta, posortowac elementy i kazdemu przypisac idx-wartosci i
+    // zamiast seta trzymac na tablicy(podobny motyw w zadaniach z ilocampow, radiotelegraf
+    // czy jakos tak(szkopul / oboz naukowy ilocamp 2011, ale mimo to sortowanie dziala w O(N lg N),
+    // czyli zlozonnosc taka sama, ale sortowanie powinno byc troche szybsze niz mapa / unordered_mapa))
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
