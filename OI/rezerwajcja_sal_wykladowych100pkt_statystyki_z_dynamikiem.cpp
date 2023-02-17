@@ -18,7 +18,7 @@ vector<int> jaki_idx_wyklad(30001,-1); // Jaki wyklad konczy sie najpozniej w mo
 
 int main()
 {
-    // O(N+K).
+    // O(N+K), gdzie K, to max(b).
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
