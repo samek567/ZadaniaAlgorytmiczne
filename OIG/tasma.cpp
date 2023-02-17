@@ -1,69 +1,52 @@
 #include <iostream>
-#include <unordered_map>
-#include <unordered_set>
 #include <vector>
-#include <algorithm>
+#include <unordered_set>
 
 using namespace std;
 
+int n = 0, m = 0, wczytana_liczba = 0, wyn = 0;
+vector<int> liczby;
+unordered_set<int> S;
+
 int main()
 {
+    // O(M * N lg N)
+    // Mozna zamiast seta, posortowac elementy i kazdemu przypisac idx-wartosci i zamiast seta trzymac na tablicy(podobny motyw w zadaniach z ilocampow)
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
 
-    int m = 0;
-    int n = 0;
-    long long wczytana_liczba = 0;
-    long long max_idx = 0;
-    long long max_wynik = 0;
-
     cin >> m;
-
-    for (int i = 0; i < m; ++i)
+    while (m--)
     {
+        liczby.clear();
+        S.clear();
+        wyn = 0;
         cin >> n;
-        unordered_map<long long,vector<long long>> kolory;
-        unordered_set<long long> wszystkie_kolory;
-        vector<long long> do_mapa;
-        max_idx = 0;
-        max_wynik = 0;
-        for (int j = 0; j < n; ++j)
+        for (int i = 0; i < n; ++i)
         {
             cin >> wczytana_liczba;
-            wszystkie_kolory.insert(wczytana_liczba);
-            if (auto it = kolory.find(wczytana_liczba) == kolory.end()) // Nie znalezlismy
-            {
-                kolory.insert({wczytana_liczba,do_mapa});
-            }
-            kolory[wczytana_liczba].push_back(j);
+            liczby.push_back(wczytana_liczba);
         }
-
-        for (auto i : wszystkie_kolory)
+        for (int i = 0; i < n; ++i)
         {
-            max_idx = n-1;
-            sort(kolory[i].begin(),kolory[i].end(), greater<long long>());
-            for (int k = 0; k < kolory[i].size(); ++k)
+            if (auto it = S.find(liczby[i]) == S.end())
             {
-                if (kolory[i][k] == max_idx)
+                S.insert(liczby[i]);
+                for (int j = n-1; j > i; --j)
                 {
-                    max_idx--;
-                }
-                else
-                {
-                    max_wynik = max(max_wynik,max_idx - kolory[i][kolory[i].size()-1]); // Odwolujemy sie do najmniejszego(najkorzystniej), a do sprawdzania byl nam potrzebny od najwiekszych.
-                    break;
+                    if (liczby[i] != liczby[j])
+                    {
+                        wyn = max(wyn,j-i);
+                        break;
+                    }
                 }
             }
         }
-        if (max_wynik == 0)
-        {
-            cout << "BRAK" << endl;
-        }
+        if (wyn != 0)
+            cout << wyn << '\n';
         else
-        {
-            cout << max_wynik << endl;
-        }
+            cout << "BRAK" << '\n';
     }
     return 0;
 }
