@@ -18,7 +18,8 @@ vector<int> jaki_idx_wyklad(30001,-1); // Jaki wyklad konczy sie najpozniej w mo
 
 int main()
 {
-    // O(N+K), gdzie K, to max(b).
+    // O(N+K), gdzie K, to max(b), jak by K, bylo bardzo duze(tak ze nie moglibysmy zrobic tablicy vectorow,
+    // to nie da sie szybciej niz O(N lg N), z binary searchem. Patrz na zadanie Wycinka drzew z 1 etapu XVI OIJ, ten sam motyw.
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
