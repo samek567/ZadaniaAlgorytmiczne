@@ -56,7 +56,7 @@ inline ll odczytaj_max(int a, int b)
 
 int main()
 {
-    // O(Z * sqrt(N)), sqrt decomposition mozna tez w O(Z * lg(N)) z drzewem przedzialowym przedzial - przedzial.
+    // O(Z * sqrt(N)), sqrt decomposition. Mozna tez w O(Z * lg(N)) z drzewem przedzialowym przedzial - przedzial.
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
