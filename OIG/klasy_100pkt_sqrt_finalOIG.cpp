@@ -23,7 +23,7 @@ int przetwarzaj_kandydata(int k)
 
 int main()
 {
-    // O(N * sqrt(N)), sprawdzamy na kandydata, tylko 2, oraz odleglosci pomiedzy kolejnymi kamieniami,
+    // O(N), sprawdzamy na kandydata, tylko 2, oraz odleglosci pomiedzy kolejnymi kamieniami,
     // dzieki tablicy czy_sprawdzilismy, nie ma powtorzen i mamy O(N * sqrt(N)).
     ios_base::sync_with_stdio(0);
     cin.tie(0);
