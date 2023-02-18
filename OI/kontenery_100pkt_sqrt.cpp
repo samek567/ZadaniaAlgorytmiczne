@@ -18,8 +18,7 @@ vector<Element> elementy;
 
 int main()
 {
-    // O(N / K + N * K), sqrt
-    // Zauwazamy, ze jak d_i >= K, to mozemy sobie pozlowic na skakanie, a jak jest mniejsze, to sprawdzamy malo kandydatow.
+    // Sqrt. Zauwazamy, ze jak d_i >= K, to mozemy sobie pozlowic na skakanie, a jak jest mniejsze, to sprawdzamy malo kandydatow.
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
