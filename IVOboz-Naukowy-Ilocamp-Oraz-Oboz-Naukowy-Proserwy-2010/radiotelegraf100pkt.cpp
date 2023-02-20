@@ -70,6 +70,7 @@ inline bool czy_pasuje(int x)
 
 int main()
 {
+    // O(N lg N)
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
