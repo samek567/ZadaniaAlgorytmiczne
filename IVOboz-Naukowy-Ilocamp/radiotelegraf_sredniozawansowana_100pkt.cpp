@@ -71,6 +71,7 @@ inline bool czy_pasuje(int x)
 int main()
 {
     // O(N lg N)
+    // https://forum.pasja-informatyki.pl/580523/modyfikacja-ciagu-a-o-dlugosci-n-m-razy
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
