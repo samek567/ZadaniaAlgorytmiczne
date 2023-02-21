@@ -30,6 +30,7 @@ vector<vector<bool>> czy_sprawdzilismy;
 int main()
 {
     // O(N*M), Dijsktra z deque, korzystajac ze krawedzie maja wagi 0 lub 1.
+    // https://forum.pasja-informatyki.pl/579294/zadanie-pasy-ruchu-ilocamp?show=579294#q579294
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
