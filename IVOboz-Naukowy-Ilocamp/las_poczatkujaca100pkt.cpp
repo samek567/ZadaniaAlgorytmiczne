@@ -7,7 +7,7 @@ bool stat[1000001] = {false};
 
 int main()
 {
-    // O(N) - zaimplementuj counting sorta.
+    // O(N+R) - zaimplementuj counting sorta.
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
