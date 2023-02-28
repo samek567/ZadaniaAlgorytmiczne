@@ -22,7 +22,8 @@ int main()
     // O(K * (N+M))
     /*
     Technika zwana grafem warstwowym. Tworzymy graf dp[i][j] - dojscie do wierzcholka i, idac dokladnie j razy po zmienionej drodze.
-    Puszczamy zwyklego BFS-a. Co ciekawe, jesli zadanie było by takie samo, tylko, że na każdej krawędzi była by waga, to można to zrobić
+    Puszczamy zwyklego BFS-a. Co ciekawe, jesli zadanie było by takie samo,
+    tylko, że na każdej krawędzi była by waga dodatnia, nie koniecznie o wartosci 1, to można to zrobić
     tak samo grafem warstwowym, korzystajac z algorytmu Dijkstry zamiast BFS-a.
     Podobne motywy grafu warstwowego wystapily w zadaniach:
     - Morskie opowiesci, 2 etap XX OI
