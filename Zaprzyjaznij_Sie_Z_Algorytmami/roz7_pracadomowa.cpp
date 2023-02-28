@@ -13,7 +13,7 @@ ll wyn = 0;
 int main()
 {
     // O(N), programowanie dynamiczne. Szukamy od lewej i prawej spojnego podciagu o maksymalnej sumie dynamicznie. W odtwarzaniu,
-    // dla kazdego punktu zakladamy, ze jest on srodkowym i bierzemy max wynik.
+    // dla kazdego punktu[1,n-1] zakladamy, ze jest on srodkowym i bierzemy max wynik.
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
