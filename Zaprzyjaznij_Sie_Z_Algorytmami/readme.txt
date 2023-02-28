@@ -4,10 +4,10 @@ Sa zrobione wszystkie zadania, oprocz zadanie Tamy, z rozdzialu 17.
 Wszystkie wrzucone zadania wchodza na 100pkt na szkopule(o ile czegos zle nie skopiowalem lub cos podobnego).
 
 Jakie zadania bardzo mi sie spodobaly:
-- Przyciski -> rozdzial 2
+- Przyciski -> rozdzial 2 (genialne zadanie!!!)
 - Gwozdzie -> rozdzial 4
-- Tory kolejowe -> rozdzial 4
-- Cukiernia -> rozdzial 5
+- Tory kolejowe (podobny motyw w zadaniu kupiec z OIG-a)-> rozdzial 4
+- Cukiernia (mozna zaklepac na 3 rozne sposoby!)-> rozdzial 5
 - Praca domowa -> rozdzial 7
 - Flagi -> rozdzial 8
 - Szczyty -> rozdzial 9
@@ -16,7 +16,7 @@ Jakie zadania bardzo mi sie spodobaly:
 - Tort -> rozdzial 12 (genialne zadanie!!!)
 - Wycinek -> rozdzial 13
 - Temperatura -> rozdzial 13
-- Bracia -> rozdzial 14
+- Bracia(Mozna na przynajmniej 2 sposoby!) -> rozdzial 14
 - Ladny ciag -> rozdzial 15
 - Wybzerze -> rozdzial 15 (genialne zadanie!!!)
 - Las -> rozdzial 18 (genialne zadanie!!!)
