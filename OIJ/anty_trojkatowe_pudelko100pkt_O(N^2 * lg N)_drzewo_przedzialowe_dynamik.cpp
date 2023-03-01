@@ -88,10 +88,13 @@ int main()
                 ll val = 1 + querry(L_J,0,L_I - L_J);
                 update(L_I, L_J, val);
                 dp[L_I][L_J] = val;
-                wyn += dp[L_I][L_J];
             }
         }
     }
+
+    for (int i = 1; i <= m; ++i)
+        for (int j = i; j >= 1; --j)
+            wyn += dp[i][j];
 
     cout << wyn << '\n';
 
