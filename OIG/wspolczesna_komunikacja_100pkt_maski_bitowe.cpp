@@ -11,7 +11,7 @@ vector<int> stat;
 
 int main()
 {
-    // Maski bitowe, operacje bitowe.
+    // Maski bitowe, operacje bitowe
     // (N*K + (2^k)*(2^k)), przyspieszamy bruta w O(N^2), zauwazajac, ze k jest male, a n duze.
     ios_base::sync_with_stdio(0);
     cin.tie(0);
