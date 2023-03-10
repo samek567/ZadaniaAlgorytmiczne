@@ -12,7 +12,7 @@ set<int> S;
 
 int main()
 {
-    // O(N lg N)    
+    // O(N lg N), mozna pewnie na vectorze zamiast na unordered_mapie / mapie / secie
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
