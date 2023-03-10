@@ -15,6 +15,7 @@ vector<int> kto_nalezy;
 int main()
 {
     // O(N), koszt zamortyzowany, cos w stylu gasienicy po okregu.
+    // Jest omowienie w przygodach Bajtazara. Sa tez po omowieniu zadania patrz takze.
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
