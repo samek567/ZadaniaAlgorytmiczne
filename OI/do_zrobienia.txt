@@ -1,0 +1,30 @@
+zeby nie zapomniec
+Grafy:
+- Agenci i Boomberman 2 etap XXIX OI
+- Zjazd Obierzyswiatow
+- Multidrink
+- Dokoncz dwuszereg(CC)
+- zawody sportowe XXIX OI (CC)
+- drogi zmienno kierunkowe
+- Przepustowosc sieci(zapisz floyda warshalla, Dijkstra juz napisana)
+- Hazard (euler)
+- Plus minus jeden (OKI, nie OI)
+
+Dynamiki:
+- Pletwonurek plecak
+- Waga z 9 OI, co jest na plecak i jest watek na forum
+- Wagony 2 etap XXX OI
+- z 2 etapu XXX OI na grafy i maski bitowe(dynamik), wspinaczka chyba
+- Pionki 1 OI(maski bitowe + dynamik)
+
+Drzewa przezdialowe i kolejka monotonniczna:
+- Przekazniki telekomunikacjne (maszty)
+- te co wycieklo, mialo byc na 2 etapie XXX OI
+- Klocki jest opis w przygodach
+
+DSU:
+- malpki
+- (te z atcodera fajne)
+
+Binary search:
+- Meteory jest opis w przygodach
