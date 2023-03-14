@@ -6,3 +6,4 @@ zeby nie zapomniec
 - dopilowac ploty
 - Najdluzsze sciezki (co dla meduzy, a dla drzewa dp na drzewie od zrodla)
 - Bezpieczensto letni oboz OIJ, po 15 OIJ, przed EJOI, wynik to chyba zawsze 1 i 2 (pewnie mosty, punkty artykulacji, dwospojne skladowe czy cos tego typu)
+- dopilowac usuwanke
