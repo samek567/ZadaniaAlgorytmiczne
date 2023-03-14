@@ -1,5 +1,6 @@
 zeby nie zapomniec
 Grafy:
+- Podpisy 7 OI BFS
 - Agenci i Boomberman 2 etap XXIX OI
 - Zjazd Obierzyswiatow
 - Multidrink
@@ -28,3 +29,6 @@ DSU:
 
 Binary search:
 - Meteory jest opis w przygodach
+
+Inne:
+-wirusy 7 OI
