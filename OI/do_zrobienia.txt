@@ -10,6 +10,7 @@ Grafy:
 - Przepustowosc sieci(zapisz floyda warshalla, Dijkstra juz napisana)
 - Hazard (euler)
 - Plus minus jeden (OKI, nie OI)
+- Obrot o 45 stopni
 
 Dynamiki:
 - Pletwonurek plecak
