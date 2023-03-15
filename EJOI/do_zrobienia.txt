@@ -1,5 +1,5 @@
 Zeby nie zapomniec:
 doklepac experience
-magic na kmp / hashe
+magic na kmp / hashe chyba
 game
 camel
