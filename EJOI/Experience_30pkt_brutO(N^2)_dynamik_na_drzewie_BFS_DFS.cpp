@@ -26,7 +26,7 @@ queue<Element_kolejki> Q_BFS;
 
 int main()
 {
-    // 45pkt, O(N^2), dynamik na drzewie.
+    // 45pkt, O(N^2), dynamik na drzewie
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
