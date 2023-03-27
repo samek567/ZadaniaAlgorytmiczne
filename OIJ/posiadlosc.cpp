@@ -15,6 +15,7 @@ unsigned long long suma_cyfr (unsigned long long liczba)
 
 int main()
 {
+    // OIJ
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
