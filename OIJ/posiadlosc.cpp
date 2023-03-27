@@ -38,7 +38,6 @@ int main()
 
     sprawdzana /= 10;
 
-    //cout << sprawdzana << endl;
     szukana = b / sprawdzana;
 
     szukana = szukana * sprawdzana;
