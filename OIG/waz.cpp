@@ -4,28 +4,106 @@
 
 using namespace std;
 
-struct pole
+enum Kierunek
 {
-    int wartosc;
-    bool czy_jest;
+    GORA, DOL, LEWO, PRAWO
 };
 
-struct pozycja
+struct Pole
 {
     int y;
     int x;
-    string kierunek;
 };
 
-long long wysokosc = 0;
-long long szerokosc = 0;
-long long liczba_ruchow = 0;
-char kierunek;
-char znak;
-vector<char> kierunki_ruchow;
-queue<pozycja> droga_weza;
-pozycja aktualna_pozycja;
+int n = 0, m = 0, k = 0;
+char wczytany_znak;
+Kierunek kierunek_weza;
+Pole glowa_weza = {-1,-1};
+vector<vector<char>> plansza;
+vector<vector<bool>> czy_jest_waz;
+queue<Pole> Q;
 
+inline void aktualizuj_kierunek(char &ruch_weza)
+{
+    if (kierunek_weza == GORA)
+    {
+        if (ruch_weza == 'N')
+            kierunek_weza = GORA;
+        else if (ruch_weza == 'L')
+            kierunek_weza = LEWO;
+        else if (ruch_weza == 'P')
+            kierunek_weza = PRAWO;
+    }
+    else if (kierunek_weza == DOL)
+    {
+        if (ruch_weza == 'N')
+            kierunek_weza = DOL;
+        else if (ruch_weza == 'L')
+            kierunek_weza = PRAWO;
+        else if (ruch_weza == 'P')
+            kierunek_weza = LEWO;
+    }
+    else if (kierunek_weza == PRAWO)
+    {
+        if (ruch_weza == 'N')
+            kierunek_weza = PRAWO;
+        else if (ruch_weza == 'L')
+            kierunek_weza = GORA;
+        else if (ruch_weza == 'P')
+            kierunek_weza = DOL;
+    }
+    else if (kierunek_weza == LEWO)
+    {
+        if (ruch_weza == 'N')
+            kierunek_weza = LEWO;
+        else if (ruch_weza == 'L')
+            kierunek_weza = DOL;
+        else if (ruch_weza == 'P')
+            kierunek_weza = GORA;
+    }
+}
+
+inline Pole kolejne_pole(char &kierunek)
+{
+    Pole res = glowa_weza;
+    if (kierunek_weza == GORA)
+    {
+        if (kierunek == 'N')
+            res.y--;
+        else if (kierunek == 'L')
+            res.x--;
+        else if (kierunek == 'P')
+            res.x++;
+    }
+    else if (kierunek_weza == DOL)
+    {
+        if (kierunek == 'N')
+            res.y++;
+        else if (kierunek == 'L')
+            res.x++;
+        else if (kierunek == 'P')
+            res.x--;
+    }
+    else if (kierunek_weza == LEWO)
+    {
+        if (kierunek == 'N')
+            res.x--;
+        else if (kierunek == 'L')
+            res.y++;
+        else if (kierunek == 'P')
+            res.y--;
+    }
+    else if (kierunek_weza == PRAWO)
+    {
+        if (kierunek == 'N')
+            res.x++;
+        else if (kierunek == 'L')
+            res.y--;
+        else if (kierunek == 'P')
+            res.y++;
+    }
+    return res;
+}
 
 int main()
 {
@@ -33,161 +111,66 @@ int main()
     cin.tie(0);
     cout.tie(0);
 
+    cin >> n >> m >> k;
 
-    cin >> wysokosc >> szerokosc >> liczba_ruchow >> kierunek;
+    plansza.assign(n,{});
+    for (int i = 0; i < n; ++i)
+        plansza[i].assign(m,'B');
 
-    pole szachownica[wysokosc][szerokosc];
+    czy_jest_waz.assign(n,{});
+    for (int i = 0; i < n; ++i)
+        czy_jest_waz[i].assign(m,false);
 
-    for (int i = 0; i < wysokosc; i++)
+    cin >> wczytany_znak;
+    if (wczytany_znak == 'N')
+        kierunek_weza = GORA;
+    else if (wczytany_znak == 'E')
+        kierunek_weza = PRAWO;
+    else if (wczytany_znak == 'S')
+        kierunek_weza = DOL;
+    else
+        kierunek_weza = LEWO;
+
+    for (int i = 0; i < n; ++i)
+        for (int j = 0; j < m; ++j)
+            cin >> plansza[i][j];
+
+    for (int i = 0; i < n; ++i)
+        for (int j = 0; j < m; ++j)
+            if (plansza[i][j] == 'W')
+                glowa_weza = {i,j};
+
+    Q.push(glowa_weza);
+    czy_jest_waz[glowa_weza.y][glowa_weza.x] = true;
+    for (int z = 0; z < k; ++z)
     {
-        for (int j = 0; j < szerokosc; j++)
+        Pole spr = Q.front();
+        cin >> wczytany_znak;
+        Pole kolejne = kolejne_pole(wczytany_znak);
+        if (kolejne.y < 0 or kolejne.y == n or kolejne.x < 0 or kolejne.x == m)
         {
-            cin >> znak;
-            if (znak == '.')
-            {
-                szachownica[i][j] = {0,false};
-            }
-            else if (znak == 'J')
-            {
-                szachownica[i][j] = {1,false};
-            }
-            else if (znak == 'W')
-            {
-                szachownica[i][j] = {0,true};
-                aktualna_pozycja.x = j;
-                aktualna_pozycja.y = i;
-                droga_weza.push(aktualna_pozycja);
-            }
-        }
-    }
-
-    for (int i = 0; i < liczba_ruchow; i++)
-    {
-        cin >> znak;
-        kierunki_ruchow.push_back(znak);
-    }
-
-    if (kierunek == 'N')
-    {
-        aktualna_pozycja.kierunek = "gora";
-    }
-    else if (kierunek == 'E')
-    {
-        aktualna_pozycja.kierunek = "prawo";
-    }
-    else if (kierunek == 'S')
-    {
-        aktualna_pozycja.kierunek = "dol";
-    }
-    else if (kierunek == 'W')
-    {
-        aktualna_pozycja.kierunek = "lewo";
-    }
-
-
-    for (int i = 0; i < liczba_ruchow; i++)
-    {
-
-        //cout << "x: " << aktualna_pozycja.x << "y: " << aktualna_pozycja.y << endl;
-
-        if (aktualna_pozycja.kierunek == "prawo")
-        {
-            if (kierunki_ruchow[i] == 'N')
-            {
-                aktualna_pozycja.x++;
-            }
-            else if (kierunki_ruchow[i] == 'P')
-            {
-                aktualna_pozycja.y++;
-                aktualna_pozycja.kierunek = "dol";
-            }
-            else // L
-            {
-                aktualna_pozycja.y--;
-                aktualna_pozycja.kierunek = "gora";
-            }
-        }
-        else if (aktualna_pozycja.kierunek == "lewo")
-        {
-            if (kierunki_ruchow[i] == 'N')
-            {
-                aktualna_pozycja.x--;
-            }
-            else if (kierunki_ruchow[i] == 'P')
-            {
-                aktualna_pozycja.y--;
-                aktualna_pozycja.kierunek = "gora";
-            }
-            else // L
-            {
-                aktualna_pozycja.y++;
-                aktualna_pozycja.kierunek = "dol";
-            }
-        }
-        else if (aktualna_pozycja.kierunek == "gora")
-        {
-            if (kierunki_ruchow[i] == 'N')
-            {
-                aktualna_pozycja.y--;
-            }
-            else if (kierunki_ruchow[i] == 'P')
-            {
-                aktualna_pozycja.x++;
-                aktualna_pozycja.kierunek = "prawo";
-            }
-            else // L
-            {
-                aktualna_pozycja.x--;
-                aktualna_pozycja.kierunek = "lewo";
-            }
-        }
-        else if (aktualna_pozycja.kierunek == "dol")
-        {
-            if (kierunki_ruchow[i] == 'N')
-            {
-                aktualna_pozycja.y++;
-            }
-            else if (kierunki_ruchow[i] == 'P')
-            {
-                aktualna_pozycja.x--;
-                aktualna_pozycja.kierunek = "lewo";
-            }
-            else // L
-            {
-                aktualna_pozycja.x++;
-                aktualna_pozycja.kierunek = "prawo";
-            }
-        }
-        //sprawdzamy czy wychodzimy poza plansze
-        if (aktualna_pozycja.x < 0 || aktualna_pozycja.x > szerokosc - 1 || aktualna_pozycja.y < 0 || aktualna_pozycja.y > wysokosc - 1)
-        {
-            cout << i + 1;
+            cout << z+1 << '\n';
             return 0;
         }
-        //sprawdzamy czy nie zderzylismy sie ze soba samym
-        if (szachownica[aktualna_pozycja.y][aktualna_pozycja.x].czy_jest == true)
+        if (czy_jest_waz[kolejne.y][kolejne.x] == true)
         {
-            cout << i + 1;
+            cout << z+1 << '\n';
             return 0;
         }
+        Q.push(kolejne);
+        if (plansza[kolejne.y][kolejne.x] == 'J')
+            plansza[kolejne.y][kolejne.x] = '.';
         else
         {
-            if (szachownica[aktualna_pozycja.y][aktualna_pozycja.x].wartosc == 1)
-            {
-                droga_weza.push(aktualna_pozycja);
-                szachownica[aktualna_pozycja.y][aktualna_pozycja.x].czy_jest = true;
-                szachownica[aktualna_pozycja.y][aktualna_pozycja.x].wartosc = 0;
-            }
-            else
-            {
-                droga_weza.push(aktualna_pozycja);
-                szachownica[aktualna_pozycja.y][aktualna_pozycja.x].czy_jest = true;
-                szachownica[droga_weza.front().y][droga_weza.front().x].czy_jest = false;
-                droga_weza.pop();
-            }
+            czy_jest_waz[spr.y][spr.x] = false;
+            Q.pop();
         }
+        czy_jest_waz[kolejne.y][kolejne.x] = true;
+        glowa_weza = kolejne;
+        aktualizuj_kierunek(wczytany_znak);
     }
 
-    cout << "OK";
+    cout << "OK" << '\n';
+
     return 0;
 }
