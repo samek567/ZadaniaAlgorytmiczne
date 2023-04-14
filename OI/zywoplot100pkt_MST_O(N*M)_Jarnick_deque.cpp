@@ -31,7 +31,7 @@ vector<vector<bool>> visited;
 
 int main()
 {
-    // O(N*M), MST, algorytm Prima na deque(zamiast kolejki priorytetowej / seta, bo wagi na krawedziach to 0 i 1, robimy tak jak Dijkstra 0-1 na deque)
+    // O(N*M) MST, algorytm Prima na deque(zamiast kolejki priorytetowej / seta, bo wagi na krawedziach to 0 i 1, robimy tak jak Dijkstra 0-1 na deque)
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
