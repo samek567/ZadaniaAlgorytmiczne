@@ -7,6 +7,7 @@ ll x1 = 0, y1 = 0, x2 = 0, y2 = 0, x3 = 0, y3 = 0;
 
 int main()
 {
+    // Czy trojkat narysowany jest zgodnie, czy przeciwnie z wskazowkami zegara.
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
