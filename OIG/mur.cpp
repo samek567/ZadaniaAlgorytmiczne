@@ -1,17 +1,24 @@
 #include <iostream>
+#include <vector>
 
 using namespace std;
+typedef long long ll;
 
-struct Element
+struct Punkt
 {
-    long long x;
-    long long y;
+    int y;
+    int x;
 };
 
-long long iloczyn_wektorowy (Element el_1, Element el_2)
+int n = 0, m = 0;
+ll iloczyn_vectorowy = 0;
+bool czy_dodatni = true, czy_zle = false;
+Punkt start;
+vector<Punkt> punkty;
+
+inline ll iloczyn_vect(int p1, int p2)
 {
-    long long iloczyn_wektorowy = (el_1.x * el_2.y) - (el_1.y * el_2.x);
-    return iloczyn_wektorowy;
+    return (ll)punkty[p1].x * (ll)punkty[p2].y - (ll)punkty[p2].x * (ll)punkty[p1].y;
 }
 
 int main()
@@ -20,75 +27,44 @@ int main()
     cin.tie(0);
     cout.tie(0);
 
-    int z = 0;
-    cin >> z;
-
-    for (int h = 0; h < z; ++h)
+    cin >> m;
+    while(m--)
     {
-
-        int n = 0;
-        bool czy_koniec = false;
-        Element jacek;
-
-        cin >> n >> jacek.x >> jacek.y;
-        Element elementy[n];
-
+        cin >> n >> start.x >> start.y;
+        punkty.assign(n,{});
+        for (int i = 0; i < n; ++i)
+            cin >> punkty[i].x >> punkty[i].y;
         for (int i = 0; i < n; ++i)
         {
-            cin >> elementy[i].x >> elementy[i].y;
-            elementy[i].x -= jacek.x;
-            elementy[i].y -= jacek.y;
+            punkty[i].y -= start.y;
+            punkty[i].x -= start.x;
         }
-
-        char kierunek;
-        long long iloczyn_wekt = iloczyn_wektorowy(elementy[0],elementy[1]);
-        if(iloczyn_wekt == 0)
-        {
-            cout << "NIE" << endl;
-            czy_koniec = true;
-        }
-        else  if (iloczyn_wekt > 0)
-        {
-            kierunek = 'P';
-        }
+        czy_zle = false;
+        iloczyn_vectorowy = iloczyn_vect(0,1);
+        if (iloczyn_vectorowy == 0)
+            czy_zle = true;
+        if (iloczyn_vectorowy > 0)
+            czy_dodatni = true;
         else
-        {
-            kierunek = 'L';
-        }
+            czy_dodatni = false;
         for (int i = 1; i < n; ++i)
         {
-            // Sztuczka z modulo n.
-            long long iloczyn_vect = iloczyn_wektorowy(elementy[i % n],elementy[(i+1) % n]);
-            if (iloczyn_vect == 0)
-            {
-                cout << "NIE" << endl;
-                czy_koniec = true;
-                break;
-            }
-            else if (iloczyn_vect > 0)
-            {
-                if (kierunek == 'L')
-                {
-                    cout << "NIE" << endl;
-                    czy_koniec = true;
-                    break;
-                }
-            }
+            if (i == n-1)
+                iloczyn_vectorowy = iloczyn_vect(i,0);
             else
-            {
-                if (kierunek == 'P')
-                {
-                    cout << "NIE" << endl;
-                    czy_koniec = true;
-                    break;
-                }
-            }
+                iloczyn_vectorowy = iloczyn_vect(i,i+1);
+            if (iloczyn_vectorowy >= 0 and czy_dodatni == false)
+                czy_zle = true;
+            else if (iloczyn_vectorowy <= 0 and czy_dodatni == true)
+                czy_zle = true;
+            if (czy_zle == true)
+                break;
         }
-        if (czy_koniec == false)
-        {
-            cout << "TAK" << endl;
-        }
-
+        if (czy_zle == true)
+            cout << "NIE" << '\n';
+        else
+            cout << "TAK" << '\n';
     }
+
     return 0;
 }
