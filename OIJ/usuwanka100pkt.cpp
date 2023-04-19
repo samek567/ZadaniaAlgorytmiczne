@@ -4,7 +4,7 @@
 
 using namespace std;
 
-int n = 0, ile_usunietych = 0, wsk_lewy = 0, wsk_prawy = 0, wyn = 0, maxx = 0;
+int n = 0, ile_usunietych = 0, wsk_lewy = 0, wyn = 0, maxx = 0;
 vector<int> liczby;
 multiset<int> S;
 
