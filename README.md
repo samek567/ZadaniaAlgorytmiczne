@@ -40,6 +40,7 @@ Podstawowych Technik jak:
 - Interpretacja grafu jako lista sąsiedztwa
 - Podzial grafu na Silnie spojne
 - Podzial grafu na silnie spojne skladowe
+- Cykl i sciezka Eulera
 - Sortowanie Topologiczne
 - Dynamiki na dag-ach
 - Zliczanie
@@ -63,6 +64,11 @@ Podstawowych Pojęć Matematycznych:
 - Faktoryzacja z sitem
 - Sito Erastotenesa
 - Kombinacje
+- Iloczyn wektorowy
+- Sortowanie kątowe
+- Otoczka wypukła(np. Algorytm Grahama)
+- Iloczyn skalarny(czy kat jest ostry, prosty, rozwarty itp.)
+- Czy punkty są wspólliniowe(np. iloczyn wektorowy)
 
 Podstawowych Struktur danych i poleceń w c++:
 - Tablice, Vectory (1,2,3 wymiarowe)
@@ -75,7 +81,7 @@ Podstawowych Struktur danych i poleceń w c++:
 - Stos
 - Kolejka priorytetowa
 - Kolejka monotonniczna
-- Stos monotonniczny (plakatowanie)
+- Stos monotonniczny (plakatowanie OI,działka OI,pranie OIG)
 - lista dwukierunkowa (deque)
 - Biblioteka standardowa (sortowanie)
 - Struktury (Przeciazanie operatorów ==, < , >)
