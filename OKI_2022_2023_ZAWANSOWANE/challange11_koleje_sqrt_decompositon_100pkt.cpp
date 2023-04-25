@@ -33,6 +33,7 @@ inline int odczytaj_max(int a, int b)
 
 int main()
 {
+    // drzewo przedzial-przedzial
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);

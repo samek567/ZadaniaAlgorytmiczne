@@ -25,6 +25,7 @@ void DFS(int v, char jaka_gildia)
 
 int main()
 {
+    // Pokoloruj graf dwoma kolorami, tak zeby kazde wierzcholki polaczone krawedzia mialy inny kolor.
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);

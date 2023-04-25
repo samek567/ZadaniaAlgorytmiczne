@@ -32,7 +32,7 @@ inline bool czy_pasuje(int &x)
 
 int main()
 {
-    // O(N lg N), zauwazamy, ze szablon musi byc prefixo-sufixem,
+    // Zeby dobic do 100pkt, pewnie trzeba KMP zaimplementowac. O(N lg N), zauwazamy, ze szablon musi byc prefixo-sufixem,
     // spostrzrzenie, ze prefixo-sufix mojego prefixo-sufixu jest moim prefixo-sufixem, dzieki czemu ograniczamy kandydatów do lg N.
     // Jesli mamy posortowane od najmniejszych dlugosci prefixo sufixow, to jesli nie da sie ulozyc z prefixo-sufixu o dlugosci X,
     // to nie da sie tez z dlugosci[X,2*X], bo one w calosci pokryja ten przedzial. wiec sprawdzamy tylko dwa razy wieksze, a ich bedzie co najwyzej logarytm.

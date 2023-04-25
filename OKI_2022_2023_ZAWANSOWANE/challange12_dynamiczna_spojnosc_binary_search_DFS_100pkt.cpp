@@ -1,0 +1,1 @@
+// Znajdz gdzies ten kod

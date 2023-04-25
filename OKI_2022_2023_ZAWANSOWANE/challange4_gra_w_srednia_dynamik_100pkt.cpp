@@ -8,6 +8,7 @@ vector<vector<double>> dp;
 
 int main()
 {
+    // Dynamik.
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);

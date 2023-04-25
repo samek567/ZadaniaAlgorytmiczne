@@ -10,7 +10,7 @@ vector<int> numer_kolejnego;
 
 int main()
 {
-    // O(q * sqrt(n))
+    // O(q * sqrt(n)), sqrt, codeforces 2700
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);

@@ -27,6 +27,7 @@ vector<bool> czy_jest;
 int main()
 {
     // O(N lg N), zachlan na secie, mozna tez na kolejce priorytetowej.
+    // Ciagle bierzemy, chyba ze nie mozemy to usuwamy i potencjalnie bierzemy dalej.
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);

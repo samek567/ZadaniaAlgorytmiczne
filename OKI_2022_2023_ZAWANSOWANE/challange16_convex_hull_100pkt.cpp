@@ -61,7 +61,7 @@ inline ll iloczyn_skal(Punkt p1, Punkt p2, Punkt p3)
 
 int main()
 {
-    // Sortowanie katowe za pomoca iloczynu wektorowego, iloczyn skalarny, otoczka wypukla z algorytmem Grahama.
+    // Sortowanie katowe za pomoca iloczynu wektorowego, iloczyn skalarny, otoczka wypukla z algorytmem Grahama, spoko zadanko.
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);

@@ -24,6 +24,7 @@ int main()
 {
     // O(N lg N), mamy dwie czynnosci, sprwadzamy ktora powinna sie wykonac przed ktora, zeby bylo szybciej, sprowadzamy to do wzoru z operatora,
     // nierownosc jest przechodnia, to gwarantuje nam, ze to dziala, dobrze omowil to Pan Mikolaj Bulge na OKI zawansowane 2022/2023 w temacie zachlanow.
+    // Sprowadza sie do zaimplementowania sortowania z wlasnym operatorem.
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);

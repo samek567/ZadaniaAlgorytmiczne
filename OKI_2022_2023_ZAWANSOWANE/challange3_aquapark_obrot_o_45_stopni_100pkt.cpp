@@ -11,6 +11,7 @@ struct Punkt
 
 int main()
 {
+    // Obrot grafu o 45 stopni.
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);

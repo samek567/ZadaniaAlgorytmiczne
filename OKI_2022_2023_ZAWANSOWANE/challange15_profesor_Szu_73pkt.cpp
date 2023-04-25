@@ -44,7 +44,7 @@ inline void DFS_spojne(int v)
 
 int main()
 {
-    // Silnie Spojne Skladowe, Sortowanie Topologiczne, Dynamik na dag-u.
+    // Silnie Spojne Skladowe, Sortowanie Topologiczne, Dynamik na dag-u. Limity pamieciowe bardzo wysrobowane.
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);

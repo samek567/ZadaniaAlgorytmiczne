@@ -11,7 +11,7 @@ vector<vector<int>> sumy_prefiksowe;
 
 int main()
 {
-    // O(n*sqrt(n) + z*sqrt(n))
+    // O(n*sqrt(n) + z*sqrt(n)), sqrt
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);

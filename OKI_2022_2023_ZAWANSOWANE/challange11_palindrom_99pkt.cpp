@@ -69,6 +69,7 @@ int querry(int p, int k)
 
 int main()
 {
+    // https://forum.pasja-informatyki.pl/577236/zadanie-palindrom-oig?show=577236#q577236
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);

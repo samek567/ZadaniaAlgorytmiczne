@@ -44,6 +44,8 @@ inline ll iloczyn_skal(Punkt p1, Punkt p2, Punkt p3)
 
 int main()
 {
+    // Swietne zadanie, iloczyn wektorowy, iloczyn skalarny, sortowanie katowe, otoczka wypukla z algorytmem Grahama.
+    // https://forum.pasja-informatyki.pl/583915/zadanie-radio-ki-staszic-geomatria-analityczna?show=583915#q583915
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);

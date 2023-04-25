@@ -37,6 +37,7 @@ int main()
 {
     // O(N), dynamik na drzewie.
     // dp[v] - maksymalna mozliwa wartosc do uzyskania, w poddrzewie ukorzenionym w wierzcholku v.
+    // Odtwarzamy wynik na podstawie policzonego dp.
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);

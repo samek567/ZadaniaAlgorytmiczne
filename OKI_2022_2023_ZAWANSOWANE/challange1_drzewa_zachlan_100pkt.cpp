@@ -78,6 +78,7 @@ void DFS (int v, int parent)
 
 int main()
 {
+    // Zachlan na drzewie.
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);

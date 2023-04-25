@@ -13,6 +13,7 @@ vector<int> hashe_prefiksowe;
 
 int main()
 {
+    // Znajdz wzorzec w tekscie.
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);

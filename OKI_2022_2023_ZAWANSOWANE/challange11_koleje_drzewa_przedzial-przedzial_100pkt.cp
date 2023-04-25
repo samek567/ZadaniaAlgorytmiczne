@@ -52,6 +52,7 @@ inline ll query(int l_zap, int p_zap, int l_kontrolowana, int p_kontrolowana, in
 
 int main()
 {
+    // sqrt decomposition
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);

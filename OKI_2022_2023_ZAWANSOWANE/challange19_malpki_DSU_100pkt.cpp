@@ -88,6 +88,7 @@ inline void aktualizuj(int wartosc_find, int val)
 
 int main()
 {
+    // DSU z odwaracaniem czasu.
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);

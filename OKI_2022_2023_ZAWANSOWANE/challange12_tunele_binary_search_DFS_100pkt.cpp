@@ -40,6 +40,7 @@ inline int ile_spojnych(int x)
 
 int main()
 {
+    // Binary search po wyniku + DFS.
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);

@@ -26,6 +26,7 @@ vector<Element> stat;
 
 int main()
 {
+    // O(N lg N), binary search. Mozna mapa / unordered_mapa / set, ale pamieciowo nie przechodzi na 100pkt.
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);

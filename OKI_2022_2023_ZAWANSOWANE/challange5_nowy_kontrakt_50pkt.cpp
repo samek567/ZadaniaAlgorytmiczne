@@ -39,6 +39,7 @@ inline bool czy_wieksze(int &idx1, int idx2)
 
 int main()
 {
+    // Brucik.
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);

@@ -95,7 +95,7 @@ inline void POW_string(int p, int x)
 
 int main()
 {
-    // Dzielimy graf na silnie spojne.
+    // Dzielimy graf na silnie spojne DFS-em.
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);

@@ -13,7 +13,7 @@ vector<vector<int>> dp;
 
 int main()
 {
-    // O(N * legal^2)
+    // O(N * legal^2), dp z maskami bitowymi.
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);

@@ -18,6 +18,7 @@ stack<Element> S;
 
 int main()
 {
+    // Stos monotonniczny, ala plakatownie OI / largest rectange in the histogram SPOJ.
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);

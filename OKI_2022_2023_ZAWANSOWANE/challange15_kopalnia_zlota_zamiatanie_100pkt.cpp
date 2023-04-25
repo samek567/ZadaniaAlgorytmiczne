@@ -46,6 +46,7 @@ inline void update (int v, int l_update, int p_update, int l_kontrolowana, int p
 
 int main()
 {
+    // Zamiatanie z drzewem przedzial-przedzial.
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);

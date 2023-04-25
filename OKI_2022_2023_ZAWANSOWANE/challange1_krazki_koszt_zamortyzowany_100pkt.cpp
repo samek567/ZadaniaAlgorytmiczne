@@ -10,6 +10,7 @@ vector<long long> max_przejdzie;
 
 int main()
 {
+    // Koszt zamortyzowany.
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);

@@ -48,6 +48,7 @@ void DFS_SCC(int x)
 
 int main()
 {
+    // Bardzo fajne zadanie,
     // 1 - Dzielimy graf na SCC, zeby nie bylo cykli i zauwazamy, ze z kazdego elementu w SCC mozna dojsc do kazdego innego.
     // 2 - Sortujemy graf topologicznie i odpalamy dynamika na dag-u.
     ios_base::sync_with_stdio(0);

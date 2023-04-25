@@ -26,6 +26,7 @@ int main()
 {
     // O(N*K), programowanie dynamiczne na drzewie.
     // Nr zgloszenia na CodeForces: 201722372
+    // https://forum.pasja-informatyki.pl/583537/zadanie-distance-in-the-tree-codeforces?show=583537#q583537 Dzięki!
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);

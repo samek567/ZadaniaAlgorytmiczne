@@ -79,7 +79,8 @@ inline void clearuj_drzewo_przedzialowe()
 
 int main()
 {
-    // Rownolegle wyszukiwanie binarne po wyniku, https://forum.pasja-informatyki.pl/583882/zadanie-meteory-final-xviii-oi-rownolegle-wyszukiwanie-binarne?show=583891#a583891
+    // Bardzo fajne zadanie na rownolegle wyszukiwanie binarne po wyniku,
+    // https://forum.pasja-informatyki.pl/583882/zadanie-meteory-final-xviii-oi-rownolegle-wyszukiwanie-binarne?show=583891#a583891
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);

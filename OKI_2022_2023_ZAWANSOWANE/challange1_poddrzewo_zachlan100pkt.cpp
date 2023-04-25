@@ -6,6 +6,7 @@ int n = 0, wczytana_liczba = 0, idx_1 = -1, idx_2 = -1;
 
 int main()
 {
+    // Zachlan, https://forum.pasja-informatyki.pl/583806/zadanie-poddrzewo-potyczki-algorytmiczne?show=583806#q583806 dzieki!
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
