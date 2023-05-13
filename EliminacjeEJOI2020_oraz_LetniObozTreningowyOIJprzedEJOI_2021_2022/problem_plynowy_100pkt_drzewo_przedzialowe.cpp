@@ -140,7 +140,7 @@ inline void wypisuje ()
 
 int main()
 {
-    // O(N lg N), drzewo przedzialowe, bin search na drzewie przedzialowym od gory.
+    // O(N lg N), drzewo przedzialowe, bin search na drzewie przedzialowym od gory
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
